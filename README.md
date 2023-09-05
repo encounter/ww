@@ -47,7 +47,7 @@ Building
 - Download [GC_WII_COMPILERS.zip](https://cdn.discordapp.com/attachments/727918646525165659/1129759991696457728/GC_WII_COMPILERS.zip)
 - Extract the archive to `tools/mwcc_compiler`.
   - Resulting structure should be (for example) `tools/mwcc_compiler/GC/1.3.2/mwcceppc.exe`
-- Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GLZE01`.  
+- Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GZLE01`.  
 ![](assets/dolphin-extract.png)
   - To save space, the only necessary files are the following. Any others can be deleted.
     - `sys/main.dol`

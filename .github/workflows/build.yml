@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [GLZE01, GLZP01, GLZJ01]
+        version: [GZLE01, GZLP01, GZLJ01]
     steps:
     - name: Checkout
       uses: actions/checkout@v3

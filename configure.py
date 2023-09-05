@@ -10,9 +10,9 @@ from shutil import which
 from tools import ninja_syntax
 
 VERSIONS = [
-    "GLZJ01",  # 0
-    "GLZE01",  # 1
-    "GLZP01",  # 2
+    "GZLJ01",  # 0
+    "GZLE01",  # 1
+    "GZLP01",  # 2
 ]
 
 if len(VERSIONS) > 1:
@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "--version",
     dest="version",
-    default="GLZE01",
+    default="GZLE01",
     help=f"version to build ({versions_str})",
 )
 parser.add_argument(
