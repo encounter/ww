@@ -1,4 +1,4 @@
-The Legend of Zelda: Wind Waker [![Build Status]][actions]
+The Legend of Zelda: The Wind Waker [![Build Status]][actions]
 =============
 
 [Build Status]: https://github.com/encounter/ww/actions/workflows/build.yml/badge.svg
