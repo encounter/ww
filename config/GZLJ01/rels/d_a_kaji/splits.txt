@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_kaji.o:
+d/a/d_a_kaji.cpp:
 	.text       start:0x00000078 end:0x00000570
 	.rodata     start:0x00000000 end:0x0000004A
 	.data       start:0x00000000 end:0x00000050

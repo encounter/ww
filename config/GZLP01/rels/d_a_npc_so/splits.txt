@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_npc_so.o:
+d/a/d_a_npc_so.cpp:
 	.text       start:0x000000EC end:0x00004BE0
 	.text       start:0x00004BE0 end:0x00004C28
 	.text       start:0x00004C28 end:0x00004CE8

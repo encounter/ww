@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_stone.o:
+d/a/d_a_stone.cpp:
 	.text       start:0x000000EC end:0x000036F8
 	.text       start:0x000036F8 end:0x000036F8
 	.text       start:0x000036F8 end:0x000037E0

@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_pirate_flag.o:
+d/a/d_a_pirate_flag.cpp:
 	.text       start:0x000000EC end:0x00001D6C
 	.text       start:0x00001D6C end:0x00001E3C
 	.ctors      start:0x00000000 end:0x00000008

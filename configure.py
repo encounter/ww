@@ -80,19 +80,17 @@ CFLAGS_BASE = [
     "-enum int",
     "-fp hardware",
     "-Cpp_exceptions off",
-    "-W all",
+    # "-W all",
     "-O4,p",
     "-inline auto",
     '-pragma "cats off"',
     '-pragma "warn_notinlined off"',
     "-maxerrors 1",
-    # Extra
     "-nosyspath",
     "-RTTI off",
     "-fp_contract on",
     "-str reuse",
     "-i include",
-    "-i libc",
     f"-DVERSION={version_num}",
 ]
 if args.debug:
@@ -104,20 +102,21 @@ CFLAGS_RUNTIME = [
     *CFLAGS_BASE,
     "-use_lmw_stmw on",
     "-str reuse,pool,readonly",
-    "-gccinc",
-    "-common off",
     "-inline deferred,auto",
 ]
 
-CFLAGS_REL = [
+CFLAGS_FRAMEWORK = [
     *CFLAGS_BASE,
-    "-use_lmw_stmw on",
+    "-use_lmw_stmw off",
     "-str reuse,pool,readonly",
-    "-gccinc",
-    "-common off",
+    "-inline noauto",
+    "-schedule off",
+]
+
+CFLAGS_REL = [
+    *CFLAGS_FRAMEWORK,
     "-sdata 0",
     "-sdata2 0",
-    "-schedule off",
 ]
 
 LINKER_VERSION = "GC/1.3.2"
@@ -146,6 +145,34 @@ LIBS = [
                 True,
                 {"source": "Runtime/global_destructor_chain.c"},
             ],
+        ],
+    },
+    {
+        "lib": "framework",
+        "mw_version": "GC/1.3.2",
+        "cflags": CFLAGS_FRAMEWORK,
+        "host": True,
+        "objects": [
+            ["f_op/f_op_actor.cpp", False],
+            ["f_op/f_op_actor_iter.cpp", True],
+            ["f_op/f_op_actor_tag.cpp", True],
+            ["f_op/f_op_actor_mng.cpp", False],
+            ["f_op/f_op_camera.cpp", False],
+            ["f_op/f_op_camera_mng.cpp", False],
+            ["f_op/f_op_overlap.cpp", False],
+            ["f_op/f_op_overlap_mng.cpp", False],
+            ["f_op/f_op_overlap_req.cpp", False],
+            ["f_op/f_op_scene.cpp", False],
+            ["f_op/f_op_scene_iter.cpp", True],
+            ["f_op/f_op_scene_mng.cpp", False],
+            ["f_op/f_op_scene_req.cpp", True],
+            ["f_op/f_op_scene_tag.cpp", True],
+            ["f_op/f_op_view.cpp", True],
+            ["f_op/f_op_kankyo.cpp", False],
+            ["f_op/f_op_msg_mng.cpp", False],
+            ["f_op/f_op_draw_iter.cpp", False],
+            ["f_op/f_op_draw_tag.cpp", True],
+            ["f_op/f_op_scene_pause.cpp", True],
         ],
     },
 ]

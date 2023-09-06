@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_ship.o:
+d/a/d_a_ship.cpp:
 	.text       start:0x000000EC end:0x0000D3FC
 	.text       start:0x0000D3FC end:0x0000D498
 	.text       start:0x0000D498 end:0x0000D500

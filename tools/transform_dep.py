@@ -3,45 +3,50 @@ import argparse
 import os
 from platform import uname
 
-wineprefix = os.path.join(os.environ['HOME'], '.wine')
-if 'WINEPREFIX' in os.environ:
-  wineprefix = os.environ['WINEPREFIX']
-winedevices = os.path.join(wineprefix, 'dosdevices')
+wineprefix = os.path.join(os.environ["HOME"], ".wine")
+if "WINEPREFIX" in os.environ:
+    wineprefix = os.environ["WINEPREFIX"]
+winedevices = os.path.join(wineprefix, "dosdevices")
+
 
 def in_wsl() -> bool:
-    return 'microsoft-standard' in uname().release
+    return "microsoft-standard" in uname().release
+
 
 def import_d_file(in_file) -> str:
-    out_text = ''
+    out_text = ""
 
     with open(in_file) as file:
-      for idx, line in enumerate(file):
-        if idx == 0:
-          if line.endswith(' \\\n'):
-            out_text += line[:-3].replace('\\', '/') + " \\\n"
-          else:
-            out_text += line.replace('\\', '/')
-        else:
-          suffix = ''
-          if line.endswith(' \\\n'):
-            suffix = ' \\'
-            path = line.lstrip()[:-3]
-          else:
-            path = line.strip()
-          # lowercase drive letter
-          path = path[0].lower() + path[1:]
-          if path[0] == 'z':
-            # shortcut for z:
-            path = path[2:].replace('\\', '/')
-          elif in_wsl():
-            path = path[0:1] + path[2:]
-            path = os.path.join('/mnt', path.replace('\\', '/'))
-          else:
-            # use $WINEPREFIX/dosdevices to resolve path
-            path = os.path.realpath(os.path.join(winedevices, path.replace('\\', '/')))
-          out_text += "\t" + path + suffix + "\n"
+        for idx, line in enumerate(file):
+            if idx == 0:
+                if line.endswith(" \\\n"):
+                    out_text += line[:-3].replace("\\", "/") + " \\\n"
+                else:
+                    out_text += line.replace("\\", "/")
+            else:
+                suffix = ""
+                if line.endswith(" \\\n"):
+                    suffix = " \\"
+                    path = line.lstrip()[:-3]
+                else:
+                    path = line.strip()
+                # lowercase drive letter
+                path = path[0].lower() + path[1:]
+                if path[0] == "z":
+                    # shortcut for z:
+                    path = path[2:].replace("\\", "/")
+                elif in_wsl():
+                    path = path[0:1] + path[2:]
+                    path = os.path.join("/mnt", path.replace("\\", "/"))
+                else:
+                    # use $WINEPREFIX/dosdevices to resolve path
+                    path = os.path.realpath(
+                        os.path.join(winedevices, path.replace("\\", "/"))
+                    )
+                out_text += "\t" + path + suffix + "\n"
 
     return out_text
+
 
 def main():
     parser = argparse.ArgumentParser(

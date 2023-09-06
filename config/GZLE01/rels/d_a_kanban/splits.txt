@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_kanban.o:
+d/a/d_a_kanban.cpp:
 	.text       start:0x000000EC end:0x00002EDC
 	.text       start:0x00002EDC end:0x00002EF8
 	.ctors      start:0x00000000 end:0x00000008

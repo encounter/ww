@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_zouK.o:
+d/a/d_a_obj_zouK.cpp:
 	.text       start:0x00000078 end:0x00001A14
 	.text       start:0x00001A14 end:0x00001E18
 	.text       start:0x00001E18 end:0x00001E84

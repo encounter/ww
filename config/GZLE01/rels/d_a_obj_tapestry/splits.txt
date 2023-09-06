@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000020
 
-d_a_obj_tapestry.o:
+d/a/d_a_obj_tapestry.cpp:
 	.text       start:0x000000EC end:0x00005F58
 	.text       start:0x00005F58 end:0x00006278
 	.text       start:0x00006278 end:0x00006398

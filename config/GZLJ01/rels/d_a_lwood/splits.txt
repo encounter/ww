@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_lwood.o:
+d/a/d_a_lwood.cpp:
 	.text       start:0x00000078 end:0x00000794
 	.rodata     start:0x00000000 end:0x00000074
 	.data       start:0x00000000 end:0x00000050

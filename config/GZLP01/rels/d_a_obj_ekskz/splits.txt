@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_ekskz.o:
+d/a/d_a_obj_ekskz.cpp:
 	.text       start:0x00000078 end:0x000011DC
 	.text       start:0x000011DC end:0x00001394
 	.text       start:0x00001394 end:0x000013C0

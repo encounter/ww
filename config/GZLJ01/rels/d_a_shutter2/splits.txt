@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_shutter2.o:
+d/a/d_a_shutter2.cpp:
 	.text       start:0x00000078 end:0x000009E4
 	.text       start:0x000009E4 end:0x000009FC
 	.rodata     start:0x00000000 end:0x000000AB

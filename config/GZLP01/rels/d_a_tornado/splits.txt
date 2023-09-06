@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d_a_tornado.o:
+d/a/d_a_tornado.cpp:
 	.text       start:0x000000EC end:0x0000164C
 	.rodata     start:0x00000000 end:0x000000DC
 	.data       start:0x00000000 end:0x00000088

@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_tide.o:
+d/a/d_a_obj_tide.cpp:
 	.text       start:0x00000078 end:0x00001E1C
 	.text       start:0x00001E1C end:0x00001F70
 	.text       start:0x00001F70 end:0x00001F8C

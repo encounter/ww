@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_bridge.o:
+d/a/d_a_bridge.cpp:
 	.text       start:0x00000078 end:0x00004CB4
 	.text       start:0x00004CB4 end:0x00004CB4
 	.rodata     start:0x00000000 end:0x00000169

@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_komore.o:
+d/a/d_a_komore.cpp:
 	.text       start:0x00000078 end:0x000005AC
 	.text       start:0x000005AC end:0x00000638
 	.rodata     start:0x00000000 end:0x00000048

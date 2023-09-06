@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_wz.o:
+d/a/d_a_wz.cpp:
 	.text       start:0x00000078 end:0x00007BD0
 	.text       start:0x00007BD0 end:0x00007BD0
 	.rodata     start:0x00000000 end:0x00000186

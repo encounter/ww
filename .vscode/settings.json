@@ -1,0 +1,18 @@
+{
+  "[c]": {
+    "files.encoding": "shiftjis",
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[cpp]": {
+    "files.encoding": "shiftjis",
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[python]":{
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "search.useIgnoreFiles": false,
+}

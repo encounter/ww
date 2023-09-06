@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_hys.o:
+d/a/d_a_hys.cpp:
 	.text       start:0x00000078 end:0x00000C30
 	.text       start:0x00000C30 end:0x00000DB4
 	.rodata     start:0x00000000 end:0x00000066

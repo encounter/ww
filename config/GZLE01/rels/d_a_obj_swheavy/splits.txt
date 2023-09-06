@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_swheavy.o:
+d/a/d_a_obj_swheavy.cpp:
 	.text       start:0x00000078 end:0x00001254
 	.text       start:0x00001254 end:0x00001270
 	.rodata     start:0x00000000 end:0x000000FD

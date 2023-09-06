@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_vmc.o:
+d/a/d_a_obj_vmc.cpp:
 	.text       start:0x00000078 end:0x0000144C
 	.text       start:0x0000144C end:0x00001478
 	.rodata     start:0x00000000 end:0x000000AA

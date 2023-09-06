@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_vfan.o:
+d/a/d_a_obj_vfan.cpp:
 	.text       start:0x00000078 end:0x00000DD8
 	.text       start:0x00000DD8 end:0x00000EDC
 	.text       start:0x00000EDC end:0x00000F08

@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_mkiek.o:
+d/a/d_a_obj_mkiek.cpp:
 	.text       start:0x00000078 end:0x00000ED0
 	.text       start:0x00000ED0 end:0x00000FD4
 	.text       start:0x00000FD4 end:0x00001000

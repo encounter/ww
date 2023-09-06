@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d_a_obj_smplbg.o:
+d/a/d_a_obj_smplbg.cpp:
 	.text       start:0x00000078 end:0x0000081C
 	.text       start:0x0000081C end:0x00000834
 	.text       start:0x00000834 end:0x00000850
