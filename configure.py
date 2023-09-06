@@ -110,6 +110,7 @@ CFLAGS_FRAMEWORK = [
     "-use_lmw_stmw off",
     "-str reuse,pool,readonly",
     "-inline noauto",
+    "-O3,p",
     "-schedule off",
 ]
 
