@@ -86,7 +86,7 @@ inline f32 C_VECSquareMag(const Vec* v) {
 }
 
 /* When compiling in debug mode, use C implementations */
-#ifdef DEBUG
+#if 0
 #define VECAdd C_VECAdd
 #define VECSubtract C_VECSubtract
 #define VECScale C_VECScale

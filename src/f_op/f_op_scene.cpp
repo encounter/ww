@@ -5,6 +5,7 @@
 
 #include "f_op/f_op_scene.h"
 #include "f_pc/f_pc_manager.h"
+#include "m_Do/m_Do_hostIO.h"
 
 static void fopScn_Draw(scene_class* i_this) {
     fpcNd_DrawMethod((nodedraw_method_class*)i_this->mpMtd, i_this);
@@ -24,6 +25,7 @@ static s32 fopScn_Delete(void* i_this) {
     if (ret == 1) {
         fopScnTg_QueueTo(&scene->mScnTg);
     }
+    mDoHIO_root.update();
     return ret;
 }
 

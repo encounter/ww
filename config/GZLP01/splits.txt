@@ -1707,7 +1707,7 @@ d/d_wpot_water.cpp:
 Runtime.PPCEABI.H/__mem.o:
 	.init       start:0x800033A8 end:0x800034E0
 
-DynamicLink.o:
+DynamicLink.cpp:
 	.text       start:0x80245238 end:0x80246418
 	.text       start:0x80246418 end:0x80246464
 	.text       start:0x80246464 end:0x80246490
@@ -1948,67 +1948,67 @@ JSystem/J3DU/J3DUDL.cpp:
 	.text       start:0x8025C120 end:0x8025C120
 	.text       start:0x8025C120 end:0x8025C128
 
-JPALoader/JPABaseShape.cpp:
+JSystem/JParticle/JPALoader/JPABaseShape.cpp:
 	.text       start:0x8025C128 end:0x8025C6A8
 	.text       start:0x8025C6A8 end:0x8025CB28
 	.rodata     start:0x8036D258 end:0x8036D2E8
 	.data       start:0x8039C938 end:0x8039CC58
 	.sdata2     start:0x80403620 end:0x80403638
 
-JPALoader/JPAExtraShape.cpp:
+JSystem/JParticle/JPALoader/JPAExtraShape.cpp:
 	.text       start:0x8025CB28 end:0x8025CC48
 	.text       start:0x8025CC48 end:0x8025CEEC
 	.data       start:0x8039CC58 end:0x8039CDB0
 	.sdata2     start:0x80403638 end:0x80403640
 
-JPALoader/JPASweepShape.cpp:
+JSystem/JParticle/JPALoader/JPASweepShape.cpp:
 	.text       start:0x8025CEEC end:0x8025CF10
 	.text       start:0x8025CF10 end:0x8025D174
 	.data       start:0x8039CDB0 end:0x8039CED0
 
-JPALoader/JPAExTexShape.cpp:
+JSystem/JParticle/JPALoader/JPAExTexShape.cpp:
 	.text       start:0x8025D174 end:0x8025D198
 	.text       start:0x8025D198 end:0x8025D2B8
 	.data       start:0x8039CED0 end:0x8039CF38
 
-JPALoader/JPADynamicsBlock.cpp:
+JSystem/JParticle/JPALoader/JPADynamicsBlock.cpp:
 	.text       start:0x8025D2B8 end:0x8025D2DC
 	.text       start:0x8025D2DC end:0x8025D538
 	.data       start:0x8039CF38 end:0x8039D040
 
-JPALoader/JPAFieldBlock.cpp:
+JSystem/JParticle/JPALoader/JPAFieldBlock.cpp:
 	.text       start:0x8025D538 end:0x8025D55C
 	.text       start:0x8025D55C end:0x8025D6FC
 	.data       start:0x8039D040 end:0x8039D0E0
 
-JPALoader/JPAKeyBlock.cpp:
+JSystem/JParticle/JPALoader/JPAKeyBlock.cpp:
 	.text       start:0x8025D6FC end:0x8025D728
 	.text       start:0x8025D728 end:0x8025D800
 	.data       start:0x8039D0E0 end:0x8039D118
 
-JPALoader/JPATexture.cpp:
+JSystem/JParticle/JPALoader/JPATexture.cpp:
 	.text       start:0x8025D800 end:0x8025DD54
 	.text       start:0x8025DD54 end:0x8025DE4C
 	.rodata     start:0x8036D2E8 end:0x8036D308
 	.data       start:0x8039D118 end:0x8039D148
 	.sdata2     start:0x80403640 end:0x80403648
 
-JPALoader/JPAResourceManager.cpp:
+JSystem/JParticle/JPALoader/JPAResourceManager.cpp:
 	.text       start:0x8025DE4C end:0x8025E254
 	.text       start:0x8025E254 end:0x8025E254
 	.text       start:0x8025E254 end:0x8025E254
 	.rodata     start:0x8036D308 end:0x8036D3D0
 
-JPALoader/JPAEmitterLoader.cpp:
+JSystem/JParticle/JPALoader/JPAEmitterLoader.cpp:
 	.text       start:0x8025E254 end:0x8025EABC
 	.text       start:0x8025EABC end:0x8025EABC
 	.rodata     start:0x8036D3D0 end:0x8036D5C8
 
-JPABase/JPAMath.cpp:
+JSystem/JParticle/JPABase/JPAMath.cpp:
 	.text       start:0x8025EABC end:0x8025F088
 	.sdata2     start:0x80403648 end:0x80403660
 
-JPABase/JPAField.cpp:
+JSystem/JParticle/JPABase/JPAField.cpp:
 	.text       start:0x8025F088 end:0x80260D14
 	.text       start:0x80260D14 end:0x802612C8
 	.ctors      start:0x8033DCCC end:0x8033DCD0
@@ -2018,7 +2018,7 @@ JPABase/JPAField.cpp:
 	.sbss       start:0x803FEBD8 end:0x803FEBE0
 	.sdata2     start:0x80403660 end:0x80403680
 
-JPABase/JPAEmitter.cpp:
+JSystem/JParticle/JPABase/JPAEmitter.cpp:
 	.text       start:0x802612C8 end:0x80263058
 	.text       start:0x80263058 end:0x80263058
 	.text       start:0x80263058 end:0x80263094
@@ -2027,11 +2027,11 @@ JPABase/JPAEmitter.cpp:
 	.bss        start:0x803EFC90 end:0x803EFDE8
 	.sdata2     start:0x80403680 end:0x804036B0
 
-JPABase/JPAParticle.cpp:
+JSystem/JParticle/JPABase/JPAParticle.cpp:
 	.text       start:0x80263094 end:0x80263FE4
 	.sdata2     start:0x804036B0 end:0x804036D8
 
-JPABase/JPAEmitterManager.cpp:
+JSystem/JParticle/JPABase/JPAEmitterManager.cpp:
 	.text       start:0x80263FE4 end:0x8026482C
 	.text       start:0x8026482C end:0x802648DC
 	.text       start:0x802648DC end:0x802649E8
@@ -2043,7 +2043,7 @@ JPABase/JPAEmitterManager.cpp:
 	.data       start:0x8039D328 end:0x8039D338
 	.sdata2     start:0x804036D8 end:0x804036E0
 
-JPADraw/JPADrawVisitor.cpp:
+JSystem/JParticle/JPADraw/JPADrawVisitor.cpp:
 	.text       start:0x80264B00 end:0x8026B64C
 	.text       start:0x8026B64C end:0x8026B64C
 	.text       start:0x8026B64C end:0x8026D0E0
@@ -2052,7 +2052,7 @@ JPADraw/JPADrawVisitor.cpp:
 	.sbss       start:0x803FEBE0 end:0x803FEBE8
 	.sdata2     start:0x804036E0 end:0x80403730
 
-JPADraw/JPADraw.cpp:
+JSystem/JParticle/JPADraw/JPADraw.cpp:
 	.text       start:0x8026D0E0 end:0x8027189C
 	.text       start:0x8027189C end:0x802718A0
 	.text       start:0x802718A0 end:0x802718A0
@@ -2064,7 +2064,7 @@ JPADraw/JPADraw.cpp:
 	.bss        start:0x803EFDE8 end:0x803EFFF0
 	.sdata2     start:0x80403730 end:0x80403770
 
-JPADraw/JPADrawSetupTev.cpp:
+JSystem/JParticle/JPADraw/JPADrawSetupTev.cpp:
 	.text       start:0x80272958 end:0x80272D5C
 
 JSystem/JStage/JSGActor.cpp:
@@ -2240,15 +2240,15 @@ JSystem/JStudio/JStudio_JParticle/object-particle.cpp:
 	.sbss       start:0x803FEC08 end:0x803FEC18
 	.sdata2     start:0x80403888 end:0x804038C8
 
-JStudio_JMessage/control.cpp:
+JSystem/JStudio/JStudio_JMessage/control.cpp:
 	.text       start:0x8027F594 end:0x8027F7B4
 	.data       start:0x8039EBC0 end:0x8039EBE8
 
-JStudio_JMessage/object-message.cpp:
+JSystem/JStudio/JStudio_JMessage/object-message.cpp:
 	.text       start:0x8027F7B4 end:0x8027F88C
 	.data       start:0x8039EBE8 end:0x8039EC10
 
-JStudioToolLibrary/console.cpp:
+JSystem/JStudio/JStudioToolLibrary/console.cpp:
 	.text       start:0x8027F88C end:0x8027F8FC
 	.text       start:0x8027F8FC end:0x8027F8FC
 	.text       start:0x8027F8FC end:0x8027F95C
@@ -2679,29 +2679,29 @@ JSystem/JMessage/resource.cpp:
 	.text       start:0x802A5350 end:0x802A5350
 	.data       start:0x803A2038 end:0x803A2070
 
-gba/GBA.c:
+dolphin/gba/GBA.c:
 	.text       start:0x802A5350 end:0x802A563C
 	.data       start:0x803A2070 end:0x803A2080
 	.bss        start:0x803F49E0 end:0x803F4EE0
 	.sbss       start:0x803FEF28 end:0x803FEF30
 
-gba/GBAGetProcessStatus.c:
+dolphin/gba/GBAGetProcessStatus.c:
 	.text       start:0x802A563C end:0x802A57A4
 
-gba/GBAJoyBoot.c:
+dolphin/gba/GBAJoyBoot.c:
 	.text       start:0x802A57A4 end:0x802A6804
 	.data       start:0x803A2080 end:0x803A20B0
 
-gba/GBARead.c:
+dolphin/gba/GBARead.c:
 	.text       start:0x802A6804 end:0x802A6964
 
-gba/GBAWrite.c:
+dolphin/gba/GBAWrite.c:
 	.text       start:0x802A6964 end:0x802A6AEC
 
-gba/GBAXfer.c:
+dolphin/gba/GBAXfer.c:
 	.text       start:0x802A6AEC end:0x802A6E18
 
-JAZelAudio/JAIZelBasic.cpp:
+JSystem/JAZelAudio/JAIZelBasic.cpp:
 	.text       start:0x802A6E18 end:0x802B1988
 	.text       start:0x802B1988 end:0x802B19D0
 	.rodata     start:0x80370DF8 end:0x803712A8
@@ -2710,41 +2710,41 @@ JAZelAudio/JAIZelBasic.cpp:
 	.sbss       start:0x803FEF30 end:0x803FEF38
 	.sdata2     start:0x80403C70 end:0x80403D88
 
-JAZelAudio/JAIZelAnime.cpp:
+JSystem/JAZelAudio/JAIZelAnime.cpp:
 	.text       start:0x802B19D0 end:0x802B21A8
 	.data       start:0x803A2260 end:0x803A2270
 	.sdata2     start:0x80403D88 end:0x80403DD0
 
-JAZelAudio/JAIZelAtmos.cpp:
+JSystem/JAZelAudio/JAIZelAtmos.cpp:
 	.text       start:0x802B21A8 end:0x802B31EC
 	.rodata     start:0x803712A8 end:0x80371428
 	.data       start:0x803A2270 end:0x803A2290
 	.sdata2     start:0x80403DD0 end:0x80403E08
 
-JAZelAudio/JAIZelInst.cpp:
+JSystem/JAZelAudio/JAIZelInst.cpp:
 	.text       start:0x802B31EC end:0x802B4104
 	.rodata     start:0x80371428 end:0x80371578
 	.data       start:0x803A2290 end:0x803A2330
 	.sdata      start:0x803FDD00 end:0x803FDD20
 	.sdata2     start:0x80403E08 end:0x80403E48
 
-JAZelAudio/JAIZelParam.cpp:
+JSystem/JAZelAudio/JAIZelParam.cpp:
 	.text       start:0x802B4104 end:0x802B4104
 	.rodata     start:0x80371578 end:0x803715E0
 	.data       start:0x803A2330 end:0x803A2930
 	.sdata      start:0x803FDD20 end:0x803FDDD0
 	.sbss       start:0x803FEF38 end:0x803FEF48
 
-JAZelAudio/JAIZelCharVoiceTable.cpp:
+JSystem/JAZelAudio/JAIZelCharVoiceTable.cpp:
 	.text       start:0x802B4104 end:0x802B4104
 	.data       start:0x803A2930 end:0x803A2F20
 
-JAZelAudio/JAIZelScene.cpp:
+JSystem/JAZelAudio/JAIZelScene.cpp:
 	.text       start:0x802B4104 end:0x802B4104
 	.rodata     start:0x803715E0 end:0x80371920
 	.data       start:0x803A2F20 end:0x803A37B8
 
-JAZelAudio/JAIZelSound.cpp:
+JSystem/JAZelAudio/JAIZelSound.cpp:
 	.text       start:0x802B4104 end:0x802B45F8
 	.data       start:0x803A37B8 end:0x803A37F0
 	.sdata2     start:0x80403E48 end:0x80403E68
@@ -3164,7 +3164,7 @@ JSystem/J2DGraph/J2DTextBox.cpp:
 	.data       start:0x803A4470 end:0x803A44A8
 	.sdata2     start:0x804040C8 end:0x804040E8
 
-JRenderer/JRenderer.cpp:
+JSystem/JRenderer/JRenderer.cpp:
 	.text       start:0x802DB058 end:0x802DB0D8
 	.sdata      start:0x803FDE30 end:0x803FDE40
 

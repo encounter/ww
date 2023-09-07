@@ -94,7 +94,7 @@ CFLAGS_BASE = [
     f"-DVERSION={version_num}",
 ]
 if args.debug:
-    CFLAGS_BASE.extend(["-sym on", "-D_DEBUG=1"])
+    CFLAGS_BASE.extend(["-sym on", "-DDEBUG=1"])
 else:
     CFLAGS_BASE.append("-DNDEBUG=1")
 
@@ -110,8 +110,10 @@ CFLAGS_FRAMEWORK = [
     "-use_lmw_stmw off",
     "-str reuse,pool,readonly",
     "-inline noauto",
-    "-O3,p",
+    "-O3,s",
     "-schedule off",
+    "-sym on",
+    "-DDEBUG",
 ]
 
 CFLAGS_REL = [
@@ -160,10 +162,10 @@ LIBS = [
             ["f_op/f_op_actor_mng.cpp", False],
             ["f_op/f_op_camera.cpp", False],
             ["f_op/f_op_camera_mng.cpp", False],
-            ["f_op/f_op_overlap.cpp", False],
+            ["f_op/f_op_overlap.cpp", True],
             ["f_op/f_op_overlap_mng.cpp", False],
-            ["f_op/f_op_overlap_req.cpp", False],
-            ["f_op/f_op_scene.cpp", False],
+            ["f_op/f_op_overlap_req.cpp", True],
+            ["f_op/f_op_scene.cpp", True],
             ["f_op/f_op_scene_iter.cpp", True],
             ["f_op/f_op_scene_mng.cpp", False],
             ["f_op/f_op_scene_req.cpp", True],
@@ -174,6 +176,16 @@ LIBS = [
             ["f_op/f_op_draw_iter.cpp", False],
             ["f_op/f_op_draw_tag.cpp", True],
             ["f_op/f_op_scene_pause.cpp", True],
+            ["DynamicLink.cpp", False],
+        ],
+    },
+    {
+        "lib": "f_pc_profile_lst",
+        "mw_version": "GC/1.3.2",
+        "cflags": CFLAGS_REL,
+        "host": True,
+        "objects": [
+            ["f_pc/f_pc_profile_lst.cpp", True],
         ],
     },
 ]
@@ -280,8 +292,9 @@ n.newline()
 # Rules
 ###
 compiler_path = args.compilers / "$mw_version"
-mwcc = compiler_path / "mwcceppc.exe"
-mwld = compiler_path / "mwldeppc.exe"
+sjiswrap = tools_path / Path("sjiswrap.exe")
+mwcc = str(sjiswrap) + " " + str(compiler_path / "mwcceppc.exe")
+mwld = str(compiler_path / "mwldeppc.exe")
 
 mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
 mwld_cmd = f"{wine}{mwld} $ldflags -o $out @$out.rsp"
@@ -481,12 +494,20 @@ if build_config_path.is_file():
         result = locate_unit(unit)
         if not result:
             step.add(obj_path)
+            base_object = Path(unit).with_suffix("")
+            objdiff_config["units"].append(
+                {
+                    "name": str(f"{step.name}/{base_object}").replace(os.sep, "/"),
+                    "target_path": str(obj_path).replace(os.sep, "/"),
+                    "reverse_fn_order": False,
+                }
+            )
             return
 
         lib, data = result
         lib_name = lib["lib"]
 
-        completed = None
+        completed = False
         options = {
             "add_to_all": True,
             "mw_version": None,
@@ -567,6 +588,7 @@ if build_config_path.is_file():
                 "target_path": str(obj_path).replace(os.sep, "/"),
                 "base_path": str(src_obj_path).replace(os.sep, "/"),
                 "reverse_fn_order": reverse_fn_order,
+                "complete": completed,
             }
         )
 
