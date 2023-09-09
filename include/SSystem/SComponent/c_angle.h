@@ -30,6 +30,7 @@ public:
     s16 Inv(void) const;
     float Sin(void) const;
     float Cos(void) const;
+    float Tan(void) const;
     cSAngle operator-(void) const;
     cSAngle operator+(const cSAngle&) const;
     cSAngle operator-(const cSAngle&) const;
@@ -38,6 +39,7 @@ public:
     cSAngle operator+(short) const;
     cSAngle operator-(short) const;
     void operator+=(short);
+    void operator-=(short);
     cSAngle operator*(float) const;
     void operator*=(float);
     bool operator<(const cSAngle& other) const { return mAngle < other.mAngle; }
@@ -94,7 +96,6 @@ public:
     float Radian(void) const;
     float Sin(void) const;
     float Cos(void) const;
-    float Tan(void) const;
 };
 
 class cSPolar {

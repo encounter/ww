@@ -55,19 +55,19 @@ struct cXyz : Vec {
     void operator-=(const Vec& other) { VECSubtract(this, &other, this); }
     void operator+=(const Vec& other) { VECAdd(this, &other, this); }
     void operator*=(f32 scale) { VECScale(this, this, scale); }
-    /* 80266C6C */ cXyz getCrossProduct(Vec const&) const;
-    /* 80266CBC */ cXyz outprod(Vec const&) const;
-    /* 80266CE4 */ cXyz norm() const;
-    /* 80266D30 */ cXyz normZP() const;
-    /* 80266DC4 */ cXyz normZC() const;
-    /* 80266EF4 */ cXyz normalize();
-    /* 80266F48 */ cXyz normalizeZP();
-    /* 80266FDC */ bool normalizeRS();
-    /* 8026702C */ bool operator==(Vec const&) const;
-    /* 8026706C */ bool operator!=(Vec const&) const;
-    /* 802670AC */ bool isZero() const;
-    /* 80267128 */ s16 atan2sX_Z() const;
-    /* 80267150 */ s16 atan2sY_XZ() const;
+    cXyz getCrossProduct(Vec const&) const;
+    cXyz outprod(Vec const&) const;
+    cXyz norm() const;
+    cXyz normZP() const;
+    cXyz normZC() const;
+    cXyz normalize();
+    cXyz normalizeZP();
+    bool normalizeRS();
+    bool operator==(Vec const&) const;
+    bool operator!=(Vec const&) const;
+    bool isZero() const;
+    s16 atan2sX_Z() const;
+    s16 atan2sY_XZ() const;
 
     void set(f32 pX, f32 pY, f32 pZ) {
         x = pX;
