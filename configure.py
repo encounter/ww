@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 import os
 import io
+import platform
 import sys
 import argparse
 import json
 
 from pathlib import Path
-from shutil import which
 from tools import ninja_syntax
+
+if sys.platform == "cygwin":
+    sys.exit(
+        f"Cygwin/MSYS2 is not supported."
+        f"\nPlease use native Windows Python instead."
+        f"\n(Current path: {sys.executable})"
+    )
 
 VERSIONS = [
     "GZLJ01",  # 0
@@ -44,7 +51,6 @@ parser.add_argument(
     "--compilers",
     dest="compilers",
     type=Path,
-    default=Path("tools/mwcc_compiler"),
     help="path to compilers (default: tools/mwcc_compiler)",
 )
 parser.add_argument(
@@ -61,11 +67,17 @@ parser.add_argument(
 )
 if os.name != "nt" and not "_NT-" in os.uname().sysname:
     parser.add_argument(
-        "--wine",
-        dest="wine",
+        "--wrapper",
+        dest="wrapper",
         type=Path,
         help="path to wine (or wibo)",
     )
+parser.add_argument(
+    "--sjiswrap",
+    dest="sjiswrap",
+    type=Path,
+    help="path to sjiswrap",
+)
 args = parser.parse_args()
 
 version = args.version.upper()
@@ -90,6 +102,7 @@ CFLAGS_BASE = [
     "-RTTI off",
     "-fp_contract on",
     "-str reuse",
+    "-multibyte",
     "-i include",
     f"-DVERSION={version_num}",
 ]
@@ -190,9 +203,16 @@ LIBS = [
     },
 ]
 
+# Tool versions
+COMPILERS_TAG = "1"
+DTK_TAG = "v0.4.0"
+SJISWRAP_TAG = "v1.1.0"
+WIBO_TAG = "0.4.3"
+
 # On Windows, we need this to use && in commands
 chain = "cmd /c " if os.name == "nt" else ""
 
+# Begin generating build.ninja
 out = io.StringIO()
 n = ninja_syntax.Writer(out)
 
@@ -212,6 +232,7 @@ version = args.version
 version_num = VERSIONS.index(args.version)
 build_path = args.build_dir / version
 config_path = Path("config") / version / "config.yml"
+tools_path = Path("tools")
 
 ldflags = f"-fp hardware -nodefaults"
 if args.map:
@@ -220,39 +241,42 @@ if args.debug:
     ldflags += " -g"
 n.variable("ldflags", ldflags)
 n.variable("mw_version", LINKER_VERSION)
-if os.name == "nt":
+if sys.platform == "win32":
     exe = ".exe"
-    wine = ""
+    wrapper = None
 else:
-    if "_NT-" in os.uname().sysname:
-        # MSYS2
-        wine = ""
-    elif args.wine:
-        wine = f"{args.wine} "
-    elif which("wibo") is not None:
-        wine = "wibo "
-    else:
-        wine = "wine "
     exe = ""
+    wrapper = args.wrapper or "wine"
 n.newline()
 
 
+# Replace forward slashes with backslashes on Windows
+def os_str(value):
+    return str(value).replace("/", os.sep)
+
+
+# Stringify paths for ninja_syntax
 def path(value):
     if value is None:
         return None
     elif isinstance(value, list):
-        return list(map(str, value))
+        return list(map(os_str, filter(lambda x: x is not None, value)))
     else:
-        return [str(value)]
+        return [os_str(value)]
 
 
 ###
 # Tooling
 ###
-n.comment("decomp-toolkit")
+n.comment("Tooling")
 
-tools_path = Path("tools")
 build_tools_path = args.build_dir / "tools"
+download_tool = tools_path / "download_tool.py"
+n.rule(
+    name="download_tool",
+    command=f"$python {download_tool} $tool $out --tag $tag",
+    description="TOOL $out",
+)
 
 if args.build_dtk:
     dtk = build_tools_path / "release" / f"dtk{exe}"
@@ -274,35 +298,84 @@ if args.build_dtk:
     )
 else:
     dtk = build_tools_path / f"dtk{exe}"
-    download_dtk = tools_path / "download_dtk.py"
-    n.rule(
-        name="download_dtk",
-        command=f"$python {download_dtk} $in $out",
-        description="DOWNLOAD $out",
-    )
     n.build(
         outputs=path(dtk),
-        rule="download_dtk",
-        inputs=path(tools_path / "dtk_version"),
-        implicit=path(download_dtk),
+        rule="download_tool",
+        implicit=path(download_tool),
+        variables={
+            "tool": "dtk",
+            "tag": DTK_TAG,
+        },
     )
+
+if args.sjiswrap:
+    sjiswrap = args.sjiswrap
+else:
+    sjiswrap = build_tools_path / "sjiswrap.exe"
+    n.build(
+        outputs=path(sjiswrap),
+        rule="download_tool",
+        implicit=path(download_tool),
+        variables={
+            "tool": "sjiswrap",
+            "tag": SJISWRAP_TAG,
+        },
+    )
+
+# Only add an implicit dependency on wibo if we download it
+wrapper_implicit = None
+if (
+    sys.platform == "linux"
+    and platform.machine() in ("i386", "x86_64")
+    and args.wrapper is None
+):
+    wrapper = build_tools_path / "wibo"
+    wrapper_implicit = wrapper
+    n.build(
+        outputs=path(wrapper),
+        rule="download_tool",
+        implicit=path(download_tool),
+        variables={
+            "tool": "wibo",
+            "tag": WIBO_TAG,
+        },
+    )
+
+compilers_implicit = None
+if args.compilers:
+    compilers = args.compilers
+else:
+    compilers = tools_path / "mwcc_compiler"
+    compilers_implicit = compilers
+    n.build(
+        outputs=path(compilers),
+        rule="download_tool",
+        implicit=path(download_tool),
+        variables={
+            "tool": "compilers",
+            "tag": COMPILERS_TAG,
+        },
+    )
+
 n.newline()
 
 ###
 # Rules
 ###
-compiler_path = args.compilers / "$mw_version"
-sjiswrap = tools_path / Path("sjiswrap.exe")
-mwcc = str(sjiswrap) + " " + str(compiler_path / "mwcceppc.exe")
-mwld = str(compiler_path / "mwldeppc.exe")
+compiler_path = compilers / "$mw_version"
+mwcc = compiler_path / "mwcceppc.exe"
+mwcc_implicit = [compilers_implicit or mwcc, sjiswrap]
+mwld = compiler_path / "mwldeppc.exe"
+mwld_implicit = [compilers_implicit or mwld, wrapper_implicit]
 
-mwcc_cmd = f"{chain}{wine}{mwcc} $cflags -MMD -c $in -o $basedir"
-mwld_cmd = f"{wine}{mwld} $ldflags -o $out @$out.rsp"
-ar_cmd = f"{dtk} ar create $out @$out.rsp"
+wrapper_cmd = f"{wrapper} " if wrapper else ""
+mwcc_cmd = f"{wrapper_cmd}{sjiswrap} {mwcc} $cflags -MMD -c $in -o $basedir"
+mwld_cmd = f"{wrapper_cmd}{mwld} $ldflags -o $out @$out.rsp"
 
 if os.name != "nt":
     transform_dep = tools_path / "transform_dep.py"
     mwcc_cmd += f" && $python {transform_dep} $basefile.d $basefile.d"
+    mwcc_implicit.append(transform_dep)
 
 n.comment("Link ELF file")
 n.rule(
@@ -436,7 +509,7 @@ class LinkStep:
                 outputs=path(elf_path),
                 rule="link",
                 inputs=path(self.inputs),
-                implicit=path(self.ldscript),
+                implicit=path([self.ldscript, *mwld_implicit]),
                 implicit_outputs=path(elf_map),
                 variables={"ldflags": elf_ldflags},
             )
@@ -463,6 +536,7 @@ class LinkStep:
                 outputs=path(preplf_path),
                 rule="link",
                 inputs=path(self.inputs),
+                implicit=path(mwld_implicit),
                 implicit_outputs=path(preplf_map),
                 variables={"ldflags": preplf_ldflags},
             )
@@ -470,7 +544,7 @@ class LinkStep:
                 outputs=path(plf_path),
                 rule="link",
                 inputs=path(self.inputs),
-                implicit=path([self.ldscript, preplf_path]),
+                implicit=path([self.ldscript, preplf_path, *mwld_implicit]),
                 implicit_outputs=path(plf_map),
                 variables={"ldflags": plf_ldflags},
             )
@@ -552,6 +626,7 @@ if build_config_path.is_file():
                     "basedir": os.path.dirname(src_base_path),
                     "basefile": path(src_base_path),
                 },
+                implicit=path(mwcc_implicit),
             )
 
             if lib["host"]:
@@ -612,21 +687,18 @@ if build_config_path.is_file():
 
     # Check if all compiler versions exist
     for mw_version in used_compiler_versions:
-        mw_path = args.compilers / mw_version / "mwcceppc.exe"
-        if not os.path.exists(mw_path):
-            print(f"Compiler {mw_path} does not exist")
-            exit(1)
+        mw_path = compilers / mw_version / "mwcceppc.exe"
+        if args.compilers and not os.path.exists(mw_path):
+            sys.exit(f"Compiler {mw_path} does not exist")
 
     # Check if linker exists
-    mw_path = args.compilers / LINKER_VERSION / "mwldeppc.exe"
-    if not os.path.exists(mw_path):
-        print(f"Linker {mw_path} does not exist")
-        exit(1)
+    mw_path = compilers / LINKER_VERSION / "mwldeppc.exe"
+    if args.compilers and not os.path.exists(mw_path):
+        sys.exit(f"Linker {mw_path} does not exist")
 
     ###
     # Link
     ###
-    n.comment("Link")
     for step in link_steps:
         step.write(n)
     n.newline()

@@ -11,8 +11,8 @@
 #include "JSystem/JUtility/JUTAssert.h"
 #include "JSystem/JUtility/JUTConsole.h"
 #include "MSL_C/stdio.h"
-#include "m_Do/m_Do_dvd_thread.h"
 #include "REL/executor.h"
+#include "m_Do/m_Do_dvd_thread.h"
 
 // #include "dolphin/os/OS.h"
 // #include "m_Do/m_Do_ext.h"
@@ -300,8 +300,8 @@ bool DynamicModuleControl::do_load() {
             }
         }
         if (mModule == NULL) {
-            // "DynamicModuleControl::do_load() Resource load failure [%s]\n"
-            OSReport_Error("DynamicModuleControl::do_load() リソ\\ース読み込み失敗 [%s]\n", mName);
+            // "DynamicModuleControl::do_load() Resource loading failure [%s]\n"
+            OSReport_Error("DynamicModuleControl::do_load() リソース読み込み失敗 [%s]\n", mName);
             return false;
         }
         if (mSize > 0) {
@@ -372,9 +372,9 @@ bool DynamicModuleControl::do_unload() {
 void DynamicModuleControl::dump2() {
     if (mModule != NULL) {
         OSSectionInfo* section = (OSSectionInfo*)mModule->info.sectionInfoOffset;
-        OSSectionInfo* section2 = section + 1;
-        u32 offset = section2->mOffset & ~(1);
-        OSReport("mModule=%08x %08x %08x %08x %08x\n", mModule, offset, offset + section2->mSize);
+        OSReport("mModule=%08x %08x %08x %08x %08x\n", mModule, section[1].mOffset & ~1,
+                 section[1].mSize, mModule->mImportTableOffset - mModule->mRelocationTableOffset,
+                 mModule->mImportTableSize);
     }
 }
 
@@ -549,36 +549,3 @@ void ModuleDestructorsX(const VoidFunc* _dtors) {
         _dtors++;
     }
 }
-
-extern "C" void dump__24DynamicModuleControlBaseFv();
-extern "C" void __ct__20DynamicModuleControlFPCc();
-extern "C" void mountCallback__20DynamicModuleControlFPv();
-extern "C" void initialize__20DynamicModuleControlFv();
-extern "C" void callback__20DynamicModuleControlFPv();
-extern "C" void do_load__20DynamicModuleControlFv();
-extern "C" void do_load_async__20DynamicModuleControlFv();
-extern "C" void do_unload__20DynamicModuleControlFv();
-extern "C" void dump2__20DynamicModuleControlFv();
-extern "C" void do_link__20DynamicModuleControlFv();
-extern "C" void do_unlink__20DynamicModuleControlFv();
-extern "C" void getModuleSize__20DynamicModuleControlCFv();
-extern "C" void getModuleTypeString__20DynamicModuleControlCFv();
-extern "C" void getModuleName__20DynamicModuleControlCFv();
-extern "C" void __dt__20DynamicModuleControlFv();
-
-/* 803C34C0-803C34F4 0205E0 0034+00 1/1 2/2 0/0 .data            __vt__20DynamicModuleControl */
-void* __vt__20DynamicModuleControl[13] = {
-    (void*)NULL /* RTTI */,
-    (void*)NULL,
-    (void*)__dt__20DynamicModuleControlFv,
-    (void*)getModuleName__20DynamicModuleControlCFv,
-    (void*)getModuleSize__20DynamicModuleControlCFv,
-    (void*)getModuleTypeString__20DynamicModuleControlCFv,
-    (void*)dump__24DynamicModuleControlBaseFv,
-    (void*)dump2__20DynamicModuleControlFv,
-    (void*)do_load__20DynamicModuleControlFv,
-    (void*)do_load_async__20DynamicModuleControlFv,
-    (void*)do_unload__20DynamicModuleControlFv,
-    (void*)do_link__20DynamicModuleControlFv,
-    (void*)do_unlink__20DynamicModuleControlFv,
-};
