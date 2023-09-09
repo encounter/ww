@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_obj_jump.cpp:
+d/actor/d_a_obj_jump.cpp:
 	.text       start:0x00000078 end:0x0000164C
 	.text       start:0x0000164C end:0x000016D4
 	.text       start:0x000016D4 end:0x00001730

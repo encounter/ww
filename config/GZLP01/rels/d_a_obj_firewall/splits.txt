@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_obj_firewall.cpp:
+d/actor/d_a_obj_firewall.cpp:
 	.text       start:0x00000078 end:0x00001E9C
 	.text       start:0x00001E9C end:0x00001EF4
 	.ctors      start:0x00000000 end:0x00000008

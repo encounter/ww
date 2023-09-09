@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_npc_sv.cpp:
+d/actor/d_a_npc_sv.cpp:
 	.text       start:0x00000078 end:0x00002C0C
 	.text       start:0x00002C0C end:0x00002C28
 	.text       start:0x00002C28 end:0x00002C58

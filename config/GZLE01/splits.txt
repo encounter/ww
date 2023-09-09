@@ -403,7 +403,7 @@ d/d_stage.cpp:
 	.sbss       start:0x803F6A70 end:0x803F6A88
 	.sdata2     start:0x803F8188 end:0x803F81B8
 
-d/map/d_map.cpp:
+d/d_map.cpp:
 	.text       start:0x800455AC end:0x800517AC
 	.text       start:0x800517AC end:0x80052134
 	.ctors      start:0x803386B8 end:0x803386BC
@@ -414,7 +414,7 @@ d/map/d_map.cpp:
 	.sdata2     start:0x803F81B8 end:0x803F8308
 	.sbss2      start:0x803FCF28 end:0x803FCF30
 
-d/com/d_com_inf_game.cpp:
+d/d_com_inf_game.cpp:
 	.text       start:0x80052134 end:0x800565CC
 	.ctors      start:0x803386BC end:0x803386C0
 	.rodata     start:0x8034F530 end:0x8034F6D0
@@ -423,10 +423,10 @@ d/com/d_com_inf_game.cpp:
 	.sdata      start:0x803F61A0 end:0x803F61B0
 	.sdata2     start:0x803F8308 end:0x803F8320
 
-d/com/d_com_lib_game.cpp:
+d/d_com_lib_game.cpp:
 	.text       start:0x800565CC end:0x8005662C
 
-d/com/d_com_static.cpp:
+d/d_com_static.cpp:
 	.text       start:0x8005662C end:0x80057000
 	.ctors      start:0x803386C0 end:0x803386C4
 	.rodata     start:0x8034F6D0 end:0x8034F750
@@ -442,7 +442,7 @@ d/d_lib.cpp:
 	.data       start:0x80375D08 end:0x80375D38
 	.sdata2     start:0x803F8368 end:0x803F8398
 
-d/save/d_save.cpp:
+d/d_save.cpp:
 	.text       start:0x800589A8 end:0x8005EF88
 	.rodata     start:0x8034F7D8 end:0x8034FB88
 	.data       start:0x80375D38 end:0x80375DF8
@@ -451,7 +451,7 @@ d/save/d_save.cpp:
 	.sbss       start:0x803F6B88 end:0x803F6B90
 	.sdata2     start:0x803F8398 end:0x803F83A8
 
-d/save/d_save_init.cpp:
+d/d_save_init.cpp:
 	.text       start:0x8005EF88 end:0x8005EFDC
 
 d/d_shop.cpp:
@@ -481,7 +481,7 @@ d/d_cloth_packet.cpp:
 	.sbss       start:0x803F6B90 end:0x803F6BA0
 	.sdata2     start:0x803F8440 end:0x803F84C8
 
-d/a/d_a_obj.cpp:
+d/actor/d_a_obj.cpp:
 	.text       start:0x800666EC end:0x80067D1C
 	.rodata     start:0x8034FBB8 end:0x8034FC58
 	.data       start:0x80376FB8 end:0x80377018
@@ -489,52 +489,52 @@ d/a/d_a_obj.cpp:
 	.sbss       start:0x803F6BA0 end:0x803F6BA8
 	.sdata2     start:0x803F84C8 end:0x803F8530
 
-d/a/d_a_obj_tribox_static.cpp:
+d/actor/d_a_obj_tribox_static.cpp:
 	.text       start:0x80067D1C end:0x80067D94
 	.ctors      start:0x803386C8 end:0x803386CC
 	.bss        start:0x803E1F30 end:0x803E1F48
 	.sbss       start:0x803F6BA8 end:0x803F6BC0
 
-d/a/d_a_ship_static.cpp:
+d/actor/d_a_ship_static.cpp:
 	.text       start:0x80067D94 end:0x80067E78
 	.sdata2     start:0x803F8530 end:0x803F8538
 
-d/a/d_a_boko_static.cpp:
+d/actor/d_a_boko_static.cpp:
 	.text       start:0x80067E78 end:0x80067FA0
 	.data       start:0x80377018 end:0x80377168
 	.sdata      start:0x803F61E0 end:0x803F61E8
 
-d/a/d_a_bomb_static.cpp:
+d/actor/d_a_bomb_static.cpp:
 	.text       start:0x80067FA0 end:0x800684F4
 	.text       start:0x800684F4 end:0x80068510
 	.rodata     start:0x8034FC58 end:0x8034FC90
 
-d/a/d_a_branch_static.cpp:
+d/actor/d_a_branch_static.cpp:
 	.text       start:0x80068510 end:0x800685F8
 	.rodata     start:0x8034FC90 end:0x8034FCC0
 
-d/a/d_a_mgameboard_static.cpp:
+d/actor/d_a_mgameboard_static.cpp:
 	.text       start:0x800685F8 end:0x80068650
 
-d/a/d_a_itembase_static.cpp:
+d/actor/d_a_itembase_static.cpp:
 	.text       start:0x80068650 end:0x80068820
 	.rodata     start:0x8034FCC0 end:0x8034FD10
 
-d/a/d_a_item_static.cpp:
+d/actor/d_a_item_static.cpp:
 	.text       start:0x80068820 end:0x800689F0
 	.sdata2     start:0x803F8538 end:0x803F8540
 
-d/a/d_a_shop_item_static.cpp:
+d/actor/d_a_shop_item_static.cpp:
 	.text       start:0x800689F0 end:0x80068A58
 	.rodata     start:0x8034FD10 end:0x80351DF0
 	.sdata2     start:0x803F8540 end:0x803F8550
 
-d/a/d_a_race_item_static.cpp:
+d/actor/d_a_race_item_static.cpp:
 	.text       start:0x80068A58 end:0x800690E4
 	.data       start:0x80377168 end:0x80377228
 	.sdata2     start:0x803F8550 end:0x803F8558
 
-d/a/d_a_leaflift_static.cpp:
+d/actor/d_a_leaflift_static.cpp:
 	.text       start:0x800690E4 end:0x800692C4
 	.sdata2     start:0x803F8558 end:0x803F8580
 
@@ -573,7 +573,7 @@ d/d_event.cpp:
 	.data       start:0x803775F0 end:0x80377628
 	.sdata2     start:0x803F8640 end:0x803F8650
 
-d/event/d_event_data.cpp:
+d/d_event_data.cpp:
 	.text       start:0x80071778 end:0x800737DC
 	.rodata     start:0x803525C8 end:0x80352828
 	.data       start:0x80377628 end:0x803777B0
@@ -581,7 +581,7 @@ d/event/d_event_data.cpp:
 	.sbss       start:0x803F6BE0 end:0x803F6BF0
 	.sdata2     start:0x803F8650 end:0x803F8678
 
-d/event/d_event_manager.cpp:
+d/d_event_manager.cpp:
 	.text       start:0x800737DC end:0x800755A4
 	.rodata     start:0x80352828 end:0x803529B0
 	.data       start:0x803777B0 end:0x80377800
@@ -621,7 +621,7 @@ d/d_tree.cpp:
 	.sbss       start:0x803F6C08 end:0x803F6C10
 	.sdata2     start:0x803F87F0 end:0x803F8880
 
-d/particle/d_particle.cpp:
+d/d_particle.cpp:
 	.text       start:0x8007A4D8 end:0x80080018
 	.ctors      start:0x803386D8 end:0x803386DC
 	.rodata     start:0x80352A80 end:0x80352BB8
@@ -631,7 +631,7 @@ d/particle/d_particle.cpp:
 	.sdata2     start:0x803F8880 end:0x803F88F0
 	.sbss2      start:0x803FCF30 end:0x803FCF38
 
-d/particle/d_particle_name.cpp:
+d/d_particle_name.cpp:
 	.text       start:0x80080018 end:0x80080018
 	.data       start:0x8037B630 end:0x8037B6A0
 
@@ -651,11 +651,11 @@ d/d_drawlist.cpp:
 	.sbss       start:0x803F6C48 end:0x803F6C60
 	.sdata2     start:0x803F88F8 end:0x803F89D0
 
-d/kankyo/d_kankyo_data.cpp:
+d/d_kankyo_data.cpp:
 	.text       start:0x80086EE0 end:0x80086F74
 	.data       start:0x8037CD28 end:0x8037D2E8
 
-d/kankyo/d_kankyo_wether.cpp:
+d/d_kankyo_wether.cpp:
 	.text       start:0x80086F74 end:0x8008AA30
 	.rodata     start:0x80352C90 end:0x80352D88
 	.data       start:0x8037D2E8 end:0x8037D3D8
@@ -663,7 +663,7 @@ d/kankyo/d_kankyo_wether.cpp:
 	.sbss       start:0x803F6C60 end:0x803F6C68
 	.sdata2     start:0x803F89D0 end:0x803F8A98
 
-d/kankyo/d_kankyo_rain.cpp:
+d/d_kankyo_rain.cpp:
 	.text       start:0x8008AA30 end:0x8009BE1C
 	.text       start:0x8009BE1C end:0x8009BE64
 	.rodata     start:0x80352D88 end:0x80352FD0
@@ -673,7 +673,7 @@ d/kankyo/d_kankyo_rain.cpp:
 	.sbss       start:0x803F6C68 end:0x803F6CA8
 	.sdata2     start:0x803F8A98 end:0x803F8E40
 
-d/kankyo/d_kankyo_demo.cpp:
+d/d_kankyo_demo.cpp:
 	.text       start:0x8009BE64 end:0x8009BFD4
 	.sdata2     start:0x803F8E40 end:0x803F8E58
 
@@ -706,7 +706,7 @@ d/d_att_dist.cpp:
 	.text       start:0x800A0270 end:0x800A0270
 	.data       start:0x8037D4E8 end:0x8037E940
 
-d/bg/d_bg_s.cpp:
+d/d_bg_s.cpp:
 	.text       start:0x800A0270 end:0x800A2550
 	.text       start:0x800A2550 end:0x800A2550
 	.text       start:0x800A2550 end:0x800A2550
@@ -726,7 +726,7 @@ d/bg/d_bg_s.cpp:
 	.data       start:0x8037E940 end:0x8037E9D8
 	.sdata2     start:0x803F8EE8 end:0x803F8F08
 
-d/bg/d_bg_s_acch.cpp:
+d/d_bg_s_acch.cpp:
 	.text       start:0x800A257C end:0x800A4348
 	.text       start:0x800A4348 end:0x800A43A4
 	.text       start:0x800A43A4 end:0x800A43EC
@@ -752,7 +752,7 @@ d/bg/d_bg_s_acch.cpp:
 	.data       start:0x8037E9D8 end:0x8037EA50
 	.sdata2     start:0x803F8F08 end:0x803F8F40
 
-d/bg/d_bg_s_func.cpp:
+d/d_bg_s_func.cpp:
 	.text       start:0x800A4564 end:0x800A54F8
 	.text       start:0x800A54F8 end:0x800A5660
 	.text       start:0x800A5660 end:0x800A5660
@@ -768,16 +768,16 @@ d/bg/d_bg_s_func.cpp:
 	.data       start:0x8037EA50 end:0x8037EA80
 	.sdata2     start:0x803F8F40 end:0x803F8F48
 
-d/bg/d_bg_s_lin_chk.cpp:
+d/d_bg_s_lin_chk.cpp:
 	.text       start:0x800A5678 end:0x800A56B8
 
-d/bg/d_bg_s_movebg_actor.cpp:
+d/d_bg_s_movebg_actor.cpp:
 	.text       start:0x800A56B8 end:0x800A5A3C
 	.text       start:0x800A5A3C end:0x800A5A7C
 	.data       start:0x8037EA80 end:0x8037EAA8
 	.sbss       start:0x803F6CB0 end:0x803F6CC0
 
-d/bg/d_bg_s_spl_grp_chk.cpp:
+d/d_bg_s_spl_grp_chk.cpp:
 	.text       start:0x800A5A7C end:0x800A5BDC
 	.text       start:0x800A5BDC end:0x800A5BDC
 	.text       start:0x800A5BDC end:0x800A5BDC
@@ -789,7 +789,7 @@ d/bg/d_bg_s_spl_grp_chk.cpp:
 	.text       start:0x800A5BDC end:0x800A5BDC
 	.sdata2     start:0x803F8F48 end:0x803F8F50
 
-d/bg/d_bg_s_wtr_chk.cpp:
+d/d_bg_s_wtr_chk.cpp:
 	.text       start:0x800A5BDC end:0x800A5C3C
 	.text       start:0x800A5C3C end:0x800A5C3C
 	.text       start:0x800A5C3C end:0x800A5C3C
@@ -800,7 +800,7 @@ d/bg/d_bg_s_wtr_chk.cpp:
 	.text       start:0x800A5C3C end:0x800A5C3C
 	.text       start:0x800A5C3C end:0x800A5C3C
 
-d/bg/d_bg_w.cpp:
+d/d_bg_w.cpp:
 	.text       start:0x800A5C3C end:0x800A986C
 	.text       start:0x800A986C end:0x800A98C8
 	.text       start:0x800A98C8 end:0x800A98C8
@@ -810,11 +810,11 @@ d/bg/d_bg_w.cpp:
 	.data       start:0x8037EAA8 end:0x8037EAE8
 	.sdata2     start:0x803F8F50 end:0x803F8F80
 
-d/bg/d_bg_w_deform.cpp:
+d/d_bg_w_deform.cpp:
 	.text       start:0x800A9928 end:0x800A9A48
 	.rodata     start:0x80353AE0 end:0x80353B38
 
-d/bg/d_bg_w_hf.cpp:
+d/d_bg_w_hf.cpp:
 	.text       start:0x800A9A48 end:0x800AAB78
 	.text       start:0x800AAB78 end:0x800AABF8
 	.text       start:0x800AABF8 end:0x800AABFC
@@ -822,14 +822,14 @@ d/bg/d_bg_w_hf.cpp:
 	.data       start:0x8037EAE8 end:0x8037EB18
 	.sdata2     start:0x803F8F80 end:0x803F8F90
 
-d/bg/d_bg_w_sv.cpp:
+d/d_bg_w_sv.cpp:
 	.text       start:0x800AABFC end:0x800AB23C
 	.text       start:0x800AB23C end:0x800AB23C
 	.text       start:0x800AB23C end:0x800AB2AC
 	.data       start:0x8037EB18 end:0x8037EB48
 	.sdata2     start:0x803F8F90 end:0x803F8F98
 
-d/cc/d_cc_d.cpp:
+d/d_cc_d.cpp:
 	.text       start:0x800AB2AC end:0x800AC0E8
 	.text       start:0x800AC0E8 end:0x800AC594
 	.text       start:0x800AC594 end:0x800AC810
@@ -837,7 +837,7 @@ d/cc/d_cc_d.cpp:
 	.rodata     start:0x80353F88 end:0x80353FA8
 	.data       start:0x8037EB48 end:0x8037EC68
 
-d/cc/d_cc_mass_s.cpp:
+d/d_cc_mass_s.cpp:
 	.text       start:0x800AC810 end:0x800AD3F8
 	.text       start:0x800AD3F8 end:0x800AD594
 	.text       start:0x800AD594 end:0x800AD594
@@ -849,7 +849,7 @@ d/cc/d_cc_mass_s.cpp:
 	.rodata     start:0x80353FA8 end:0x80353FD8
 	.sdata2     start:0x803F8F98 end:0x803F8FB0
 
-d/cc/d_cc_s.cpp:
+d/d_cc_s.cpp:
 	.text       start:0x800AD5B0 end:0x800AE89C
 	.text       start:0x800AE89C end:0x800AE89C
 	.text       start:0x800AE89C end:0x800AE89C
@@ -864,7 +864,7 @@ d/cc/d_cc_s.cpp:
 	.data       start:0x8037EC68 end:0x8037ED18
 	.sdata2     start:0x803F8FB0 end:0x803F8FD8
 
-d/cc/d_cc_uty.cpp:
+d/d_cc_uty.cpp:
 	.text       start:0x800AE938 end:0x800AF368
 	.text       start:0x800AF368 end:0x800AF384
 	.sdata2     start:0x803F8FD8 end:0x803F9000
@@ -935,7 +935,7 @@ d/d_spline_path.cpp:
 	.text       start:0x800C26D4 end:0x800C26D4
 	.sdata2     start:0x803F9460 end:0x803F9470
 
-d/s/d_s_actor_data_mng.cpp:
+d/d_s_actor_data_mng.cpp:
 	.text       start:0x800C26D4 end:0x800C2DFC
 	.rodata     start:0x8035AA18 end:0x8035AB30
 	.data       start:0x803888B8 end:0x803888C8
@@ -952,11 +952,11 @@ d/d_2dnumber.cpp:
 	.data       start:0x803890C8 end:0x80389138
 	.sdata2     start:0x803F9488 end:0x803F9508
 
-d/a/d_a_npc_cb1_static.cpp:
+d/actor/d_a_npc_cb1_static.cpp:
 	.text       start:0x800CB5C4 end:0x800CB5CC
 	.sbss       start:0x803F6E60 end:0x803F6E68
 
-d/a/d_a_npc_mk_static.cpp:
+d/actor/d_a_npc_mk_static.cpp:
 	.text       start:0x800CB5CC end:0x800CC734
 	.sdata2     start:0x803F9508 end:0x803F9560
 
@@ -983,7 +983,7 @@ d/d_point_wind.cpp:
 	.rodata     start:0x8035B7A0 end:0x8035B7A8
 	.sdata2     start:0x803F95D0 end:0x803F9600
 
-d/a/d_a_agb.cpp:
+d/actor/d_a_agb.cpp:
 	.text       start:0x800CF5EC end:0x800D4554
 	.text       start:0x800D4554 end:0x800D455C
 	.ctors      start:0x803386F0 end:0x803386F4
@@ -993,7 +993,7 @@ d/a/d_a_agb.cpp:
 	.sbss       start:0x803F6E68 end:0x803F6E90
 	.sdata2     start:0x803F9600 end:0x803F96C0
 
-d/a/d_a_arrow.cpp:
+d/actor/d_a_arrow.cpp:
 	.text       start:0x800D455C end:0x800D8434
 	.rodata     start:0x8035B860 end:0x8035B968
 	.data       start:0x80389890 end:0x80389C90
@@ -1001,14 +1001,14 @@ d/a/d_a_arrow.cpp:
 	.sbss       start:0x803F6E90 end:0x803F6E98
 	.sdata2     start:0x803F96C0 end:0x803F9788
 
-d/a/d_a_bg.cpp:
+d/actor/d_a_bg.cpp:
 	.text       start:0x800D8434 end:0x800D9318
 	.rodata     start:0x8035B968 end:0x8035B9A0
 	.data       start:0x80389C90 end:0x80389DB8
 	.bss        start:0x803E3668 end:0x803E3688
 	.sdata2     start:0x803F9788 end:0x803F97A0
 
-d/a/d_a_bomb.cpp:
+d/actor/d_a_bomb.cpp:
 	.text       start:0x800D9318 end:0x800D9318
 	.text       start:0x800D9318 end:0x800DD1A4
 	.text       start:0x800DD1A4 end:0x800DD1A4
@@ -1020,7 +1020,7 @@ d/a/d_a_bomb.cpp:
 	.sdata2     start:0x803F97A0 end:0x803F9890
 	.sbss2      start:0x803FCF38 end:0x803FCF40
 
-d/a/d_a_bomb2.cpp:
+d/actor/d_a_bomb2.cpp:
 	.text       start:0x800DD37C end:0x800E0B14
 	.text       start:0x800E0B14 end:0x800E0BEC
 	.text       start:0x800E0BEC end:0x800E0BEC
@@ -1032,7 +1032,7 @@ d/a/d_a_bomb2.cpp:
 	.sdata2     start:0x803F9890 end:0x803F9940
 	.sbss2      start:0x803FCF40 end:0x803FCF48
 
-d/a/d_a_boomerang.cpp:
+d/actor/d_a_boomerang.cpp:
 	.text       start:0x800E0C08 end:0x800E34A4
 	.text       start:0x800E34A4 end:0x800E34AC
 	.text       start:0x800E34AC end:0x800E3510
@@ -1045,7 +1045,7 @@ d/a/d_a_boomerang.cpp:
 	.sbss       start:0x803F6EA8 end:0x803F6EB0
 	.sdata2     start:0x803F9940 end:0x803F99E0
 
-d/a/d_a_dai_item.cpp:
+d/actor/d_a_dai_item.cpp:
 	.text       start:0x800E3638 end:0x800E595C
 	.ctors      start:0x803386F8 end:0x803386FC
 	.rodata     start:0x8035BB80 end:0x8035BCD0
@@ -1055,18 +1055,18 @@ d/a/d_a_dai_item.cpp:
 	.sbss       start:0x803F6EB0 end:0x803F6EB8
 	.sdata2     start:0x803F99E0 end:0x803F9A50
 
-d/a/d_a_demo00.cpp:
+d/actor/d_a_demo00.cpp:
 	.text       start:0x800E595C end:0x800E79C0
 	.rodata     start:0x8035BCD0 end:0x8035BDE8
 	.data       start:0x8038B018 end:0x8038B0C0
 	.sdata2     start:0x803F9A50 end:0x803F9A98
 
-d/a/d_a_disappear.cpp:
+d/actor/d_a_disappear.cpp:
 	.text       start:0x800E79C0 end:0x800E7E60
 	.data       start:0x8038B0C0 end:0x8038B158
 	.sdata2     start:0x803F9A98 end:0x803F9AB0
 
-d/a/d_a_esa.cpp:
+d/actor/d_a_esa.cpp:
 	.text       start:0x800E7E60 end:0x800E8CA4
 	.text       start:0x800E8CA4 end:0x800E8CC0
 	.rodata     start:0x8035BDE8 end:0x8035BE18
@@ -1075,7 +1075,7 @@ d/a/d_a_esa.cpp:
 	.sbss       start:0x803F6EB8 end:0x803F6EC0
 	.sdata2     start:0x803F9AB0 end:0x803F9B28
 
-d/a/d_a_grid.cpp:
+d/actor/d_a_grid.cpp:
 	.text       start:0x800E8CC0 end:0x800EB520
 	.text       start:0x800EB520 end:0x800EB5D8
 	.text       start:0x800EB5D8 end:0x800EB60C
@@ -1086,7 +1086,7 @@ d/a/d_a_grid.cpp:
 	.sbss       start:0x803F6EC0 end:0x803F6EC8
 	.sdata2     start:0x803F9B28 end:0x803F9C28
 
-d/a/d_a_himo2.cpp:
+d/actor/d_a_himo2.cpp:
 	.text       start:0x800EB60C end:0x800F0BE0
 	.text       start:0x800F0BE0 end:0x800F0C54
 	.text       start:0x800F0C54 end:0x800F0CCC
@@ -1099,7 +1099,7 @@ d/a/d_a_himo2.cpp:
 	.sbss       start:0x803F6EC8 end:0x803F6ED8
 	.sdata2     start:0x803F9C28 end:0x803F9DD0
 
-d/a/d_a_hookshot.cpp:
+d/actor/d_a_hookshot.cpp:
 	.text       start:0x800F104C end:0x800F3198
 	.text       start:0x800F3198 end:0x800F31CC
 	.text       start:0x800F31CC end:0x800F3228
@@ -1108,14 +1108,14 @@ d/a/d_a_hookshot.cpp:
 	.data       start:0x8038BD20 end:0x8038C500
 	.sdata2     start:0x803F9DD0 end:0x803F9E28
 
-d/a/d_a_ib.cpp:
+d/actor/d_a_ib.cpp:
 	.text       start:0x800F3228 end:0x800F4BC8
 	.rodata     start:0x8035BE78 end:0x8035BF08
 	.data       start:0x8038C500 end:0x8038C8A0
 	.sbss       start:0x803F6ED8 end:0x803F6EE0
 	.sdata2     start:0x803F9E28 end:0x803F9E80
 
-d/a/d_a_item.cpp:
+d/actor/d_a_item.cpp:
 	.text       start:0x800F4BC8 end:0x800F89F8
 	.text       start:0x800F89F8 end:0x800F8A14
 	.rodata     start:0x8035BF08 end:0x8035BF18
@@ -1124,13 +1124,13 @@ d/a/d_a_item.cpp:
 	.sbss       start:0x803F6EE0 end:0x803F6EE8
 	.sdata2     start:0x803F9E80 end:0x803F9EF8
 
-d/a/d_a_itembase.cpp:
+d/actor/d_a_itembase.cpp:
 	.text       start:0x800F8A14 end:0x800F95B8
 	.rodata     start:0x8035BF18 end:0x8035BF80
 	.data       start:0x8038D120 end:0x8038D148
 	.sdata2     start:0x803F9EF8 end:0x803F9F18
 
-d/a/d_a_nh.cpp:
+d/actor/d_a_nh.cpp:
 	.text       start:0x800F95B8 end:0x800FAFC0
 	.ctors      start:0x80338708 end:0x8033870C
 	.rodata     start:0x8035BF80 end:0x8035BFF8
@@ -1139,7 +1139,7 @@ d/a/d_a_nh.cpp:
 	.sbss       start:0x803F6EE8 end:0x803F6EF0
 	.sdata2     start:0x803F9F18 end:0x803F9F58
 
-d/a/d_a_npc_fa1.cpp:
+d/actor/d_a_npc_fa1.cpp:
 	.text       start:0x800FAFC0 end:0x800FDAE8
 	.text       start:0x800FDAE8 end:0x800FDAFC
 	.ctors      start:0x8033870C end:0x80338710
@@ -1149,7 +1149,7 @@ d/a/d_a_npc_fa1.cpp:
 	.sbss       start:0x803F6EF0 end:0x803F6F00
 	.sdata2     start:0x803F9F58 end:0x803F9FC0
 
-d/a/d_a_obj_search.cpp:
+d/actor/d_a_obj_search.cpp:
 	.text       start:0x800FDAFC end:0x801028FC
 	.text       start:0x801028FC end:0x801028FC
 	.rodata     start:0x8035C090 end:0x8035C210
@@ -1160,7 +1160,7 @@ d/a/d_a_obj_search.cpp:
 	.sdata2     start:0x803F9FC0 end:0x803FA0B8
 	.sbss2      start:0x803FCF48 end:0x803FCF50
 
-d/a/d_a_player.cpp:
+d/actor/d_a_player.cpp:
 	.text       start:0x801028FC end:0x80102E18
 	.text       start:0x80102E18 end:0x80102E18
 	.text       start:0x80102E18 end:0x80102E8C
@@ -1168,7 +1168,7 @@ d/a/d_a_player.cpp:
 	.data       start:0x8038DC50 end:0x8038DC80
 	.sdata2     start:0x803FA0B8 end:0x803FA0E0
 
-d/a/d_a_player_main.cpp:
+d/actor/d_a_player_main.cpp:
 	.text       start:0x80102E8C end:0x8012901C
 	.text       start:0x8012901C end:0x8012CD60
 	.text       start:0x8012CD60 end:0x80132F34
@@ -1207,14 +1207,14 @@ d/a/d_a_player_main.cpp:
 	.sdata2     start:0x803FA0E0 end:0x803FA5B8
 	.sbss2      start:0x803FCF50 end:0x803FCF58
 
-d/a/d_a_player_npc.cpp:
+d/actor/d_a_player_npc.cpp:
 	.text       start:0x8015A37C end:0x8015B0A4
 	.rodata     start:0x8035E4A0 end:0x8035E540
 	.bss        start:0x803E4720 end:0x803E4738
 	.sbss       start:0x803F6F58 end:0x803F6F60
 	.sdata2     start:0x803FA5B8 end:0x803FA5E8
 
-d/a/d_a_sea.cpp:
+d/actor/d_a_sea.cpp:
 	.text       start:0x8015B0A4 end:0x8015D99C
 	.text       start:0x8015D99C end:0x8015DAAC
 	.text       start:0x8015DAAC end:0x8015DAF4
@@ -1225,18 +1225,18 @@ d/a/d_a_sea.cpp:
 	.sdata      start:0x803F62C0 end:0x803F62C8
 	.sdata2     start:0x803FA5E8 end:0x803FA678
 
-d/a/d_a_spc_item01.cpp:
+d/actor/d_a_spc_item01.cpp:
 	.text       start:0x8015DAF4 end:0x8015E3F0
 	.data       start:0x80390788 end:0x80390840
 	.sdata2     start:0x803FA678 end:0x803FA6A8
 
-d/a/d_a_vrbox.cpp:
+d/actor/d_a_vrbox.cpp:
 	.text       start:0x8015E3F0 end:0x8015EA14
 	.rodata     start:0x8035E578 end:0x8035E5C8
 	.data       start:0x80390840 end:0x80390890
 	.sdata2     start:0x803FA6A8 end:0x803FA6B0
 
-d/a/d_a_vrbox2.cpp:
+d/actor/d_a_vrbox2.cpp:
 	.text       start:0x8015EA14 end:0x8015F550
 	.rodata     start:0x8035E5C8 end:0x8035E658
 	.data       start:0x80390890 end:0x803908E0
@@ -1282,7 +1282,7 @@ d/d_envse.cpp:
 	.sdata2     start:0x803FA9A0 end:0x803FA9A8
 	.sbss2      start:0x803FCF58 end:0x803FCF60
 
-d/file/d_file_error.cpp:
+d/d_file_error.cpp:
 	.text       start:0x8017DB40 end:0x8017F67C
 	.text       start:0x8017F67C end:0x8017F8B0
 	.ctors      start:0x80338720 end:0x80338724
@@ -1292,7 +1292,7 @@ d/file/d_file_error.cpp:
 	.sdata      start:0x803F62D0 end:0x803F62E0
 	.sdata2     start:0x803FA9A8 end:0x803FA9F0
 
-d/file/d_file_select.cpp:
+d/d_file_select.cpp:
 	.text       start:0x8017F8B0 end:0x8018DD30
 	.text       start:0x8018DD30 end:0x8018E1CC
 	.ctors      start:0x80338724 end:0x80338728
@@ -1311,7 +1311,7 @@ d/d_gameover.cpp:
 	.sdata      start:0x803F62E8 end:0x803F62F0
 	.sdata2     start:0x803FAA58 end:0x803FAAA8
 
-d/kankyo/d_kankyo.cpp:
+d/d_kankyo.cpp:
 	.text       start:0x8018F7FC end:0x80197AB8
 	.text       start:0x80197AB8 end:0x80197FE4
 	.ctors      start:0x80338728 end:0x8033872C
@@ -1349,7 +1349,7 @@ d/d_level_se.cpp:
 	.data       start:0x80391D98 end:0x80391DE0
 	.sdata2     start:0x803FAC60 end:0x803FAC68
 
-d/menu/d_menu_cloth.cpp:
+d/d_menu_cloth.cpp:
 	.text       start:0x8019940C end:0x8019BE8C
 	.ctors      start:0x8033872C end:0x80338730
 	.rodata     start:0x8035F048 end:0x8035F088
@@ -1359,7 +1359,7 @@ d/menu/d_menu_cloth.cpp:
 	.sdata2     start:0x803FAC68 end:0x803FAD38
 	.sbss2      start:0x803FCF60 end:0x803FCF68
 
-d/menu/d_menu_collect.cpp:
+d/d_menu_collect.cpp:
 	.text       start:0x8019BE8C end:0x801A84B4
 	.text       start:0x801A84B4 end:0x801A84B4
 	.text       start:0x801A84B4 end:0x801A84FC
@@ -1370,7 +1370,7 @@ d/menu/d_menu_collect.cpp:
 	.bss        start:0x803E5FC8 end:0x803E6038
 	.sdata2     start:0x803FAD38 end:0x803FADE0
 
-d/menu/d_menu_dmap.cpp:
+d/d_menu_dmap.cpp:
 	.text       start:0x801A86A4 end:0x801AF3B8
 	.text       start:0x801AF3B8 end:0x801AF3B8
 	.text       start:0x801AF3B8 end:0x801AF4F0
@@ -1380,7 +1380,7 @@ d/menu/d_menu_dmap.cpp:
 	.bss        start:0x803E6038 end:0x803E6090
 	.sdata2     start:0x803FADE0 end:0x803FAE58
 
-d/menu/d_menu_fmap.cpp:
+d/d_menu_fmap.cpp:
 	.text       start:0x801AF4F0 end:0x801BB088
 	.text       start:0x801BB088 end:0x801BB3E4
 	.ctors      start:0x80338738 end:0x8033873C
@@ -1390,7 +1390,7 @@ d/menu/d_menu_fmap.cpp:
 	.sdata      start:0x803F6318 end:0x803F6320
 	.sdata2     start:0x803FAE58 end:0x803FAF28
 
-d/menu/d_menu_fmap2.cpp:
+d/d_menu_fmap2.cpp:
 	.text       start:0x801BB3E4 end:0x801C790C
 	.text       start:0x801C790C end:0x801C790C
 	.text       start:0x801C790C end:0x801C7B4C
@@ -1401,7 +1401,7 @@ d/menu/d_menu_fmap2.cpp:
 	.sdata      start:0x803F6320 end:0x803F6328
 	.sdata2     start:0x803FAF28 end:0x803FAFB8
 
-d/menu/d_menu_item.cpp:
+d/d_menu_item.cpp:
 	.text       start:0x801C7B4C end:0x801D2A4C
 	.text       start:0x801D2A4C end:0x801D2A4C
 	.text       start:0x801D2A4C end:0x801D2B68
@@ -1411,7 +1411,7 @@ d/menu/d_menu_item.cpp:
 	.bss        start:0x803E6268 end:0x803E62D8
 	.sdata2     start:0x803FAFB8 end:0x803FB018
 
-d/menu/d_menu_option.cpp:
+d/d_menu_option.cpp:
 	.text       start:0x801D2B68 end:0x801D5D38
 	.text       start:0x801D5D38 end:0x801D5DB8
 	.ctors      start:0x80338744 end:0x80338748
@@ -1421,7 +1421,7 @@ d/menu/d_menu_option.cpp:
 	.sbss       start:0x803F6FD0 end:0x803F6FD8
 	.sdata2     start:0x803FB018 end:0x803FB078
 
-d/menu/d_menu_save.cpp:
+d/d_menu_save.cpp:
 	.text       start:0x801D5DB8 end:0x801DAED0
 	.text       start:0x801DAED0 end:0x801DAF44
 	.text       start:0x801DAF44 end:0x801DB384
@@ -1431,7 +1431,7 @@ d/menu/d_menu_save.cpp:
 	.bss        start:0x803E62E8 end:0x803E6328
 	.sdata2     start:0x803FB078 end:0x803FB0D0
 
-d/menu/d_menu_window.cpp:
+d/d_menu_window.cpp:
 	.text       start:0x801DB384 end:0x801DF684
 	.text       start:0x801DF684 end:0x801DFB28
 	.text       start:0x801DFB28 end:0x801DFB28
@@ -1459,7 +1459,7 @@ d/d_mesg.cpp:
 	.sbss       start:0x803F7010 end:0x803F7050
 	.sdata2     start:0x803FB0E8 end:0x803FB170
 
-d/message/d_message.cpp:
+d/d_message.cpp:
 	.text       start:0x801E73B4 end:0x801EB128
 	.ctors      start:0x80338750 end:0x80338754
 	.rodata     start:0x80360BD0 end:0x80360D50
@@ -1469,7 +1469,7 @@ d/message/d_message.cpp:
 	.sdata2     start:0x803FB170 end:0x803FB1F8
 	.sbss2      start:0x803FCF68 end:0x803FCF70
 
-d/message/d_message_paper.cpp:
+d/d_message_paper.cpp:
 	.text       start:0x801EB128 end:0x801EEFDC
 	.ctors      start:0x80338754 end:0x80338758
 	.rodata     start:0x80360D50 end:0x80360F38
@@ -1492,7 +1492,7 @@ d/d_meter.cpp:
 	.sdata2     start:0x803FB258 end:0x803FB3E8
 	.sbss2      start:0x803FCF70 end:0x803FCF78
 
-d/minigame/d_minigame_starter.cpp:
+d/d_minigame_starter.cpp:
 	.text       start:0x80205FE8 end:0x80206F64
 	.text       start:0x80206F64 end:0x80206FC0
 	.rodata     start:0x80361990 end:0x803619D0
@@ -1500,7 +1500,7 @@ d/minigame/d_minigame_starter.cpp:
 	.sdata      start:0x803F6358 end:0x803F6370
 	.sdata2     start:0x803FB3E8 end:0x803FB448
 
-d/minigame/d_minigame_terminater.cpp:
+d/d_minigame_terminater.cpp:
 	.text       start:0x80206FC0 end:0x8020A5C4
 	.text       start:0x8020A5C4 end:0x8020A620
 	.rodata     start:0x803619D0 end:0x80361D40
@@ -1555,22 +1555,22 @@ d/d_metronome.cpp:
 	.bss        start:0x803E6FF0 end:0x803E7020
 	.sdata2     start:0x803FB6C0 end:0x803FB710
 
-d/ovlp/d_ovlp_fade.cpp:
+d/d_ovlp_fade.cpp:
 	.text       start:0x802235CC end:0x802237F4
 	.data       start:0x80393CF8 end:0x80393DD8
 	.sbss       start:0x803F7210 end:0x803F7218
 
-d/ovlp/d_ovlp_fade2.cpp:
+d/d_ovlp_fade2.cpp:
 	.text       start:0x802237F4 end:0x80224284
 	.text       start:0x80224284 end:0x8022433C
 	.data       start:0x80393DD8 end:0x80393E80
 	.sdata2     start:0x803FB710 end:0x803FB758
 
-d/ovlp/d_ovlp_fade3.cpp:
+d/d_ovlp_fade3.cpp:
 	.text       start:0x8022433C end:0x80224390
 	.data       start:0x80393E80 end:0x80393E90
 
-d/ovlp/d_ovlp_fade4.cpp:
+d/d_ovlp_fade4.cpp:
 	.text       start:0x80224390 end:0x802256C0
 	.text       start:0x802256C0 end:0x802258C8
 	.rodata     start:0x803624B8 end:0x803624E0
@@ -1587,7 +1587,7 @@ d/d_picture_box.cpp:
 	.sbss       start:0x803F7218 end:0x803F7220
 	.sdata2     start:0x803FB7B8 end:0x803FB848
 
-d/s/d_s_logo.cpp:
+d/d_s_logo.cpp:
 	.text       start:0x8022C0B4 end:0x8022E9F4
 	.rodata     start:0x80362800 end:0x80362BF8
 	.data       start:0x80394000 end:0x80394078
@@ -1595,7 +1595,7 @@ d/s/d_s_logo.cpp:
 	.sdata2     start:0x803FB848 end:0x803FB890
 	.sbss2      start:0x803FCF80 end:0x803FCF90
 
-d/s/d_s_menu.cpp:
+d/d_s_menu.cpp:
 	.text       start:0x8022E9F4 end:0x8022F86C
 	.rodata     start:0x80362BF8 end:0x80362E40
 	.data       start:0x80394078 end:0x80394118
@@ -1603,7 +1603,7 @@ d/s/d_s_menu.cpp:
 	.sbss       start:0x803F7298 end:0x803F72B0
 	.sdata2     start:0x803FB890 end:0x803FB8E0
 
-d/s/d_s_name.cpp:
+d/d_s_name.cpp:
 	.text       start:0x8022F86C end:0x80232518
 	.text       start:0x80232518 end:0x80232518
 	.text       start:0x80232518 end:0x80232518
@@ -1617,19 +1617,19 @@ d/s/d_s_name.cpp:
 	.sdata2     start:0x803FB8E0 end:0x803FB930
 	.sbss2      start:0x803FCF90 end:0x803FCF98
 
-d/s/d_s_open.cpp:
+d/d_s_open.cpp:
 	.text       start:0x80232A68 end:0x80232EFC
 	.rodata     start:0x80362F50 end:0x80362F98
 	.data       start:0x80394658 end:0x803946C0
 
-d/s/d_s_open_sub.cpp:
+d/d_s_open_sub.cpp:
 	.text       start:0x80232EFC end:0x80234550
 	.text       start:0x80234550 end:0x80234570
 	.rodata     start:0x80362F98 end:0x80363018
 	.data       start:0x803946C0 end:0x803947A8
 	.sdata2     start:0x803FB930 end:0x803FB978
 
-d/s/d_s_play.cpp:
+d/d_s_play.cpp:
 	.text       start:0x80234570 end:0x80236938
 	.ctors      start:0x80338770 end:0x80338774
 	.rodata     start:0x80363018 end:0x80363770
@@ -1639,13 +1639,13 @@ d/s/d_s_play.cpp:
 	.sbss       start:0x803F72B0 end:0x803F72D8
 	.sdata2     start:0x803FB978 end:0x803FB9B8
 
-d/s/d_s_room.cpp:
+d/d_s_room.cpp:
 	.text       start:0x80236938 end:0x802372F4
 	.rodata     start:0x80363770 end:0x80363810
 	.data       start:0x80394CA0 end:0x80394CF0
 	.bss        start:0x803E7FE8 end:0x803E8008
 
-d/s/d_s_title.cpp:
+d/d_s_title.cpp:
 	.text       start:0x802372F4 end:0x80237568
 	.rodata     start:0x80363810 end:0x80363828
 	.data       start:0x80394CF0 end:0x80394D58

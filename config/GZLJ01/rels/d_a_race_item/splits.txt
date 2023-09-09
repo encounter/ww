@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_race_item.cpp:
+d/actor/d_a_race_item.cpp:
 	.text       start:0x00000078 end:0x00000C74
 	.text       start:0x00000C74 end:0x00000C90
 	.text       start:0x00000C90 end:0x00000DA0

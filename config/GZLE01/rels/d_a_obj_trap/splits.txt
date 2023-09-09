@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d/a/d_a_obj_trap.cpp:
+d/actor/d_a_obj_trap.cpp:
 	.text       start:0x000000EC end:0x00002F5C
 	.rodata     start:0x00000000 end:0x000000C2
 	.data       start:0x00000000 end:0x000002F4

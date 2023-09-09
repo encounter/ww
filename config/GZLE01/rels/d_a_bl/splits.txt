@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_bl.cpp:
+d/actor/d_a_bl.cpp:
 	.text       start:0x00000078 end:0x00006840
 	.text       start:0x00006840 end:0x00006898
 	.rodata     start:0x00000000 end:0x000000F9

@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_bpw.cpp:
+d/actor/d_a_bpw.cpp:
 	.text       start:0x00000078 end:0x0000E2E4
 	.text       start:0x0000E2E4 end:0x0000E470
 	.text       start:0x0000E470 end:0x0000E5DC
