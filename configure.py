@@ -162,10 +162,20 @@ LIBS = [
         "cflags": CFLAGS_FRAMEWORK,
         "host": True,
         "objects": [
+            # JSystem
+            NonMatching("JSystem/JKernel/JKRFile.cpp"),
+            NonMatching("JSystem/JSupport/JSUList.cpp"),
+            NonMatching("JSystem/JSupport/JSUInputStream.cpp"),
+            Matching   ("JSystem/JSupport/JSUMemoryStream.cpp"),
+            NonMatching("JSystem/JSupport/JSUFileStream.cpp"),
+            NonMatching("JSystem/JUtility/JUTNameTab.cpp"),
+            NonMatching("JSystem/JUtility/JUTPalette.cpp"),
+            NonMatching("JSystem/JParticle/JPATexture.cpp"),
+
             # SSystem
             NonMatching("SSystem/SStandard/s_basic.cpp"),
-            NonMatching("SSystem/SComponent/c_malloc.cpp"),
-            NonMatching("SSystem/SComponent/c_API.cpp"),
+            Matching   ("SSystem/SComponent/c_malloc.cpp"),
+            Matching   ("SSystem/SComponent/c_API.cpp"),
             Matching   ("SSystem/SComponent/c_API_graphic.cpp"),
             Matching   ("SSystem/SComponent/c_counter.cpp"),
             NonMatching("SSystem/SComponent/c_list.cpp"),
@@ -180,8 +190,21 @@ LIBS = [
             Matching   ("SSystem/SComponent/c_tag_iter.cpp"),
             NonMatching("SSystem/SComponent/c_xyz.cpp"),
             NonMatching("SSystem/SComponent/c_sxyz.cpp"),
+            NonMatching("SSystem/SComponent/c_bg_s.cpp"),
+            Matching   ("SSystem/SComponent/c_bg_s_chk.cpp"),
+            NonMatching("SSystem/SComponent/c_bg_s_gnd_chk.cpp"),
+            NonMatching("SSystem/SComponent/c_bg_s_lin_chk.cpp"),
+            NonMatching("SSystem/SComponent/c_bg_w.cpp"),
+            NonMatching("SSystem/SComponent/c_m2d.cpp"),
+            NonMatching("SSystem/SComponent/c_m2d_g_box.cpp"),
+            Matching   ("SSystem/SComponent/c_m3d_g_aab.cpp"),
+            NonMatching("SSystem/SComponent/c_m3d_g_cyl.cpp"),
+            NonMatching("SSystem/SComponent/c_m3d_g_pla.cpp"),
+            NonMatching("SSystem/SComponent/c_m3d_g_sph.cpp"),
+            NonMatching("SSystem/SComponent/c_m3d_g_tri.cpp"),
             NonMatching("SSystem/SComponent/c_lib.cpp"),
             NonMatching("SSystem/SComponent/c_angle.cpp"),
+            NonMatching("SSystem/SComponent/c_data_tbl.cpp"),
 
             # framework
             NonMatching("f_ap/f_ap_game.cpp"),
@@ -236,6 +259,9 @@ LIBS = [
             NonMatching("f_pc/f_pc_draw.cpp"),
             NonMatching("f_pc/f_pc_fstcreate_req.cpp"),
             NonMatching("f_pc/f_pc_stdcreate_req.cpp"),
+
+            # machine
+            NonMatching("m_Do/m_Do_controller_pad.cpp"),
 
             # dolzel
         ],

@@ -8,10 +8,13 @@
 
 /* 80247304-8024734C       .text __dt__8cBgS_ChkFv */
 cBgS_Chk::~cBgS_Chk() {
-    /* Nonmatching */
 }
 
 /* 8024734C-8024738C       .text ChkSameActorPid__8cBgS_ChkCFUi */
-void cBgS_Chk::ChkSameActorPid(unsigned int) const {
-    /* Nonmatching */
+bool cBgS_Chk::ChkSameActorPid(unsigned int pid) const {
+    if (mActorPid == -1 || pid == UINT32_MAX || unk_0x0C == 0) {
+        return 0;
+    } else {
+        return (mActorPid == pid) ? 1 : 0;
+    }
 }

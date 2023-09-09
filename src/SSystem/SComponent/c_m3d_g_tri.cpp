@@ -4,14 +4,18 @@
 //
 
 #include "SSystem/SComponent/c_m3d_g_tri.h"
+#include "SSystem/SComponent/c_m3d.h"
 #include "dolphin/types.h"
 
 /* 802527D4-80252878       .text __ct__8cM3dGTriFPC3VecPC3VecPC3Vec */
-cM3dGTri::cM3dGTri(const Vec*, const Vec*, const Vec*) {
-    /* Nonmatching */
+cM3dGTri::cM3dGTri(const Vec* pA, const Vec* pB, const Vec* pC) {
+    mA = *pA;
+    mB = *pB;
+    mC = *pC;
+    cM3d_CalcPla(&mA, &mB, &mC, &mNormal, &mD);
 }
 
 /* 80252878-802528A4       .text cross__8cM3dGTriCFPC8cM3dGCylP3Vec */
-void cM3dGTri::cross(const cM3dGCyl*, Vec*) const {
-    /* Nonmatching */
+bool cM3dGTri::cross(const cM3dGCyl* pOther, Vec* pOut) const {
+    return cM3d_Cross_CylTri(pOther, this, pOut);
 }

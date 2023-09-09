@@ -21,15 +21,14 @@ struct interface_of_controller_pad {
     /* 0x28 */ f32 mTriggerLeft;
     /* 0x2C */ f32 mTriggerRight;
     /* 0x30 */ u32 mButtonFlags;
-    /* 0x34 */ u32 mPressedButtonFlags;
-    /* 0x38 */ s8 mGamepadErrorFlags;
-    /* 0x39 */ u8 mHoldLockL;
-    /* 0x3A */ u8 mTrigLockL;
-    /* 0x3B */ u8 mHoldLockR;
-    /* 0x3C */ u8 mTrigLockR;
-    /* 0x3D */ u8 field_0x3d;
-    /* 0x3E */ u8 field_0x3e;
-    /* 0x3F */ u8 field_0x3f;
+    /* 0x34 */ s8 mGamepadErrorFlags;
+    /* 0x35 */ u8 mHoldLockL;
+    /* 0x36 */ u8 mTrigLockL;
+    /* 0x37 */ u8 mHoldLockR;
+    /* 0x38 */ u8 mTrigLockR;
+    /* 0x39 */ u8 field_0x3d;
+    /* 0x3A */ u8 field_0x3e;
+    /* 0x3B */ u8 field_0x3f;
 };
 
 void cAPICPad_recalibrate(void);

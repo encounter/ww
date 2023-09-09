@@ -9,15 +9,15 @@
 
 /* 8024135C-8024138C       .text cAPIGph_Painter__Fv */
 void cAPIGph_Painter(void) {
-    g_cAPI_Interface[4]();
+    g_cAPI_Interface.mpPainter();
 }
 
 /* 8024138C-802413BC       .text cAPIGph_BeforeOfDraw__Fv */
 void cAPIGph_BeforeOfDraw(void) {
-    g_cAPI_Interface[2]();
+    g_cAPI_Interface.mpBeforeOfDraw();
 }
 
 /* 802413BC-802413EC       .text cAPIGph_AfterOfDraw__Fv */
 void cAPIGph_AfterOfDraw(void) {
-    g_cAPI_Interface[3]();
+    g_cAPI_Interface.mpAfterOfDraw();
 }

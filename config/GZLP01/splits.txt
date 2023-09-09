@@ -1948,67 +1948,67 @@ JSystem/J3DU/J3DUDL.cpp:
 	.text       start:0x8025C120 end:0x8025C120
 	.text       start:0x8025C120 end:0x8025C128
 
-JPALoader/JPABaseShape.cpp:
+JSystem/JParticle/JPABaseShape.cpp:
 	.text       start:0x8025C128 end:0x8025C6A8
 	.text       start:0x8025C6A8 end:0x8025CB28
 	.rodata     start:0x8036D258 end:0x8036D2E8
 	.data       start:0x8039C938 end:0x8039CC58
 	.sdata2     start:0x80403620 end:0x80403638
 
-JPALoader/JPAExtraShape.cpp:
+JSystem/JParticle/JPAExtraShape.cpp:
 	.text       start:0x8025CB28 end:0x8025CC48
 	.text       start:0x8025CC48 end:0x8025CEEC
 	.data       start:0x8039CC58 end:0x8039CDB0
 	.sdata2     start:0x80403638 end:0x80403640
 
-JPALoader/JPASweepShape.cpp:
+JSystem/JParticle/JPASweepShape.cpp:
 	.text       start:0x8025CEEC end:0x8025CF10
 	.text       start:0x8025CF10 end:0x8025D174
 	.data       start:0x8039CDB0 end:0x8039CED0
 
-JPALoader/JPAExTexShape.cpp:
+JSystem/JParticle/JPAExTexShape.cpp:
 	.text       start:0x8025D174 end:0x8025D198
 	.text       start:0x8025D198 end:0x8025D2B8
 	.data       start:0x8039CED0 end:0x8039CF38
 
-JPALoader/JPADynamicsBlock.cpp:
+JSystem/JParticle/JPADynamicsBlock.cpp:
 	.text       start:0x8025D2B8 end:0x8025D2DC
 	.text       start:0x8025D2DC end:0x8025D538
 	.data       start:0x8039CF38 end:0x8039D040
 
-JPALoader/JPAFieldBlock.cpp:
+JSystem/JParticle/JPAFieldBlock.cpp:
 	.text       start:0x8025D538 end:0x8025D55C
 	.text       start:0x8025D55C end:0x8025D6FC
 	.data       start:0x8039D040 end:0x8039D0E0
 
-JPALoader/JPAKeyBlock.cpp:
+JSystem/JParticle/JPAKeyBlock.cpp:
 	.text       start:0x8025D6FC end:0x8025D728
 	.text       start:0x8025D728 end:0x8025D800
 	.data       start:0x8039D0E0 end:0x8039D118
 
-JPALoader/JPATexture.cpp:
+JSystem/JParticle/JPATexture.cpp:
 	.text       start:0x8025D800 end:0x8025DD54
 	.text       start:0x8025DD54 end:0x8025DE4C
 	.rodata     start:0x8036D2E8 end:0x8036D308
 	.data       start:0x8039D118 end:0x8039D148
 	.sdata2     start:0x80403640 end:0x80403648
 
-JPALoader/JPAResourceManager.cpp:
+JSystem/JParticle/JPAResourceManager.cpp:
 	.text       start:0x8025DE4C end:0x8025E254
 	.text       start:0x8025E254 end:0x8025E254
 	.text       start:0x8025E254 end:0x8025E254
 	.rodata     start:0x8036D308 end:0x8036D3D0
 
-JPALoader/JPAEmitterLoader.cpp:
+JSystem/JParticle/JPAEmitterLoader.cpp:
 	.text       start:0x8025E254 end:0x8025EABC
 	.text       start:0x8025EABC end:0x8025EABC
 	.rodata     start:0x8036D3D0 end:0x8036D5C8
 
-JPABase/JPAMath.cpp:
+JSystem/JParticle/JPAMath.cpp:
 	.text       start:0x8025EABC end:0x8025F088
 	.sdata2     start:0x80403648 end:0x80403660
 
-JPABase/JPAField.cpp:
+JSystem/JParticle/JPAField.cpp:
 	.text       start:0x8025F088 end:0x80260D14
 	.text       start:0x80260D14 end:0x802612C8
 	.ctors      start:0x8033DCCC end:0x8033DCD0
@@ -2018,7 +2018,7 @@ JPABase/JPAField.cpp:
 	.sbss       start:0x803FEBD8 end:0x803FEBE0
 	.sdata2     start:0x80403660 end:0x80403680
 
-JPABase/JPAEmitter.cpp:
+JSystem/JParticle/JPAEmitter.cpp:
 	.text       start:0x802612C8 end:0x80263058
 	.text       start:0x80263058 end:0x80263058
 	.text       start:0x80263058 end:0x80263094
@@ -2027,11 +2027,11 @@ JPABase/JPAEmitter.cpp:
 	.bss        start:0x803EFC90 end:0x803EFDE8
 	.sdata2     start:0x80403680 end:0x804036B0
 
-JPABase/JPAParticle.cpp:
+JSystem/JParticle/JPAParticle.cpp:
 	.text       start:0x80263094 end:0x80263FE4
 	.sdata2     start:0x804036B0 end:0x804036D8
 
-JPABase/JPAEmitterManager.cpp:
+JSystem/JParticle/JPAEmitterManager.cpp:
 	.text       start:0x80263FE4 end:0x8026482C
 	.text       start:0x8026482C end:0x802648DC
 	.text       start:0x802648DC end:0x802649E8
@@ -2043,7 +2043,7 @@ JPABase/JPAEmitterManager.cpp:
 	.data       start:0x8039D328 end:0x8039D338
 	.sdata2     start:0x804036D8 end:0x804036E0
 
-JPADraw/JPADrawVisitor.cpp:
+JSystem/JParticle/JPADrawVisitor.cpp:
 	.text       start:0x80264B00 end:0x8026B64C
 	.text       start:0x8026B64C end:0x8026B64C
 	.text       start:0x8026B64C end:0x8026D0E0
@@ -2052,7 +2052,7 @@ JPADraw/JPADrawVisitor.cpp:
 	.sbss       start:0x803FEBE0 end:0x803FEBE8
 	.sdata2     start:0x804036E0 end:0x80403730
 
-JPADraw/JPADraw.cpp:
+JSystem/JParticle/JPADraw.cpp:
 	.text       start:0x8026D0E0 end:0x8027189C
 	.text       start:0x8027189C end:0x802718A0
 	.text       start:0x802718A0 end:0x802718A0
@@ -2064,7 +2064,7 @@ JPADraw/JPADraw.cpp:
 	.bss        start:0x803EFDE8 end:0x803EFFF0
 	.sdata2     start:0x80403730 end:0x80403770
 
-JPADraw/JPADrawSetupTev.cpp:
+JSystem/JParticle/JPADrawSetupTev.cpp:
 	.text       start:0x80272958 end:0x80272D5C
 
 JSystem/JStage/JSGActor.cpp:

@@ -6,7 +6,7 @@
 #include "f_pc/f_pc_draw_priority.h"
 
 /* 8003D580-8003D588       .text fpcDwPi_Get__FP19draw_priority_class */
-s16 fpcDwPi_Get(const draw_priority_class* i_drawPrioClass) {
+s16 fpcDwPi_Get(draw_priority_class* i_drawPrioClass) {
     return i_drawPrioClass->mPriority;
 }
 

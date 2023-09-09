@@ -10,20 +10,20 @@
 // External References:
 //
 
-void mDoGph_BlankingON();
-void mDoGph_BlankingOFF();
-void mDoGph_BeforeOfDraw();
-void mDoGph_AfterOfDraw();
-void mDoGph_Painter();
-void mDoGph_Create();
+extern s16 g_mDoGph_graphicInfo;
+extern void mDoGph_BlankingON();
+extern void mDoGph_BlankingOFF();
+extern void mDoGph_BeforeOfDraw();
+extern void mDoGph_AfterOfDraw();
+extern void mDoGph_Painter();
+extern void mDoGph_Create();
 
-//
-// Declarations:
-//
-
-/* ############################################################################################## */
-/* 803C3528-803C3540 0018+00 s=0 e=3 z=0  None .data      g_cAPI_Interface */
-cAPIGph_Mthd g_cAPI_Interface[6] = {
-    mDoGph_Create,  mDoGph_BeforeOfDraw, mDoGph_AfterOfDraw,
-    mDoGph_Painter, mDoGph_BlankingON,   mDoGph_BlankingOFF,
+cAPIGph__Iface g_cAPI_Interface = {
+    &g_mDoGph_graphicInfo,
+    mDoGph_Create,
+    mDoGph_BeforeOfDraw,
+    mDoGph_AfterOfDraw,
+    mDoGph_Painter,
+    mDoGph_BlankingON,
+    mDoGph_BlankingOFF,
 };

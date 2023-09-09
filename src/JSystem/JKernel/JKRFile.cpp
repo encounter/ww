@@ -4,9 +4,17 @@
 //
 
 #include "JSystem/JKernel/JKRFile.h"
-#include "dolphin/types.h"
+#include "JSystem/JUtility/JUTAssert.h"
+#include "dolphin/vi/vi.h"
 
 /* 802BC610-802BC6B4       .text read__7JKRFileFPvll */
-void JKRFile::read(void*, long, long) {
-    /* Nonmatching */
+s32 JKRFile::read(void* data, s32 length, long offset) {
+    JUT_ASSERT("JKRFile.cpp", 34, ( length & 0x1f ) == 0);
+    while (true) {
+        s32 result = readData(data, length, offset);
+        if (length != result)
+            VIWaitForRetrace();
+        else
+            return result;
+    }
 }

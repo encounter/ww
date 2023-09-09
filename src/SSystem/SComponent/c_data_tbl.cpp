@@ -4,84 +4,91 @@
 //
 
 #include "SSystem/SComponent/c_data_tbl.h"
-#include "dolphin/types.h"
+#include "MSL_C/string.h"
 
 /* 80254974-80254990       .text __ct__12cDT_NamePTblFv */
 cDT_NamePTbl::cDT_NamePTbl() {
-    /* Nonmatching */
+    mCount = NULL;
+    mpNames = NULL;
 }
 
 /* 80254990-802549D8       .text __dt__12cDT_NamePTblFv */
 cDT_NamePTbl::~cDT_NamePTbl() {
-    /* Nonmatching */
 }
 
 /* 802549D8-802549E4       .text Set__12cDT_NamePTblFUlPPc */
-void cDT_NamePTbl::Set(unsigned long, char**) {
-    /* Nonmatching */
+void cDT_NamePTbl::Set(u32 count, char** pNames) {
+    mCount = count;
+    mpNames = pNames;
 }
 
 /* 802549E4-80254A5C       .text GetIndex__12cDT_NamePTblCFPCci */
-void cDT_NamePTbl::GetIndex(const char*, int) const {
-    /* Nonmatching */
+int cDT_NamePTbl::GetIndex(const char* pName, int idx) const {
+    for (; idx < mCount; idx++)
+        if (strcmp(pName, mpNames[idx]) == 0)
+            return idx;
+
+    return -1;
 }
 
 /* 80254A5C-80254A98       .text __ct__10cDT_FormatFv */
 cDT_Format::cDT_Format() {
-    /* Nonmatching */
 }
 
 /* 80254A98-80254AF8       .text __dt__10cDT_FormatFv */
 cDT_Format::~cDT_Format() {
-    /* Nonmatching */
 }
 
 /* 80254AF8-80254B34       .text __ct__8cDT_NameFv */
 cDT_Name::cDT_Name() {
-    /* Nonmatching */
 }
 
 /* 80254B34-80254B94       .text __dt__8cDT_NameFv */
 cDT_Name::~cDT_Name() {
-    /* Nonmatching */
 }
 
 /* 80254B94-80254BB4       .text __ct__11cDT_DataSrcFv */
 cDT_DataSrc::cDT_DataSrc() {
-    /* Nonmatching */
+    mRowNum = 0;
+    mColNum = 0;
+    mpData = NULL;
 }
 
 /* 80254BB4-80254BFC       .text __dt__11cDT_DataSrcFv */
 cDT_DataSrc::~cDT_DataSrc() {
-    /* Nonmatching */
 }
 
 /* 80254BFC-80254C0C       .text Set__11cDT_DataSrcFUlUlPUc */
-void cDT_DataSrc::Set(unsigned long, unsigned long, unsigned char*) {
-    /* Nonmatching */
+void cDT_DataSrc::Set(u32 rowNum, u32 colNum, u8* pData) {
+    mRowNum = rowNum;
+    mColNum = colNum;
+    mpData = pData;
 }
 
 /* 80254C0C-80254C50       .text GetInf__11cDT_DataSrcCFii */
-void cDT_DataSrc::GetInf(int, int) const {
-    /* Nonmatching */
+u8 cDT_DataSrc::GetInf(int row, int col) const {
+    if (row < 0 || row >= mRowNum || col < 0 || col >= mColNum)
+        return 0xFF;
+
+    return mpData[row + col * mRowNum];
 }
 
 /* 80254C50-80254C90       .text __ct__3cDTFv */
 cDT::cDT() {
-    /* Nonmatching */
 }
 
 /* 80254C90-80254D00       .text __dt__3cDTFv */
 cDT::~cDT() {
-    /* Nonmatching */
 }
 
 /* 80254D00-80254D68       .text Set__3cDTFUlPPcUlPPcPUc */
-void cDT::Set(unsigned long, char**, unsigned long, char**, unsigned char*) {
-    /* Nonmatching */
+void cDT::Set(u32 fmtCount, char** pFmt, u32 nameCount, char** pName, u8* pData) {
+    mFmt.Set(fmtCount, pFmt);
+    mName.Set(nameCount, pName);
+    mSrc.Set(fmtCount, nameCount, pData);
 }
 
 /* 80254D68-80254D8C       .text GetInf__3cDTCFii */
-void cDT::GetInf(int, int) const {
-    /* Nonmatching */
+u8 cDT::GetInf(int row, int col) const {
+    return mSrc.GetInf(row, col);
 }

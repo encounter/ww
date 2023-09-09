@@ -4,6 +4,11 @@
 #include "MSL_C/math.h"
 #include "dolphin/mtx/vec.h"
 
+struct cXy {
+    f32 x;
+    f32 y;
+};
+
 struct cXyz : Vec {
     static const cXyz Zero;
     static const cXyz BaseX;

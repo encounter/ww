@@ -6,7 +6,7 @@
 #include "f_pc/f_pc_leaf.h"
 
 /* 8003DC78-8003DC9C       .text fpcLf_GetPriority__FP14leafdraw_class */
-s16 fpcLf_GetPriority(const leafdraw_class* i_leaf) {
+s16 fpcLf_GetPriority(leafdraw_class* i_leaf) {
     return fpcDwPi_Get(&i_leaf->mDwPi);
 }
 

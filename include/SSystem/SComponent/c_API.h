@@ -3,6 +3,17 @@
 
 typedef void (*cAPIGph_Mthd)(void);
 
-extern cAPIGph_Mthd g_cAPI_Interface[6];
+struct cAPIGph__Iface
+{
+    void * mpGInfo;
+    cAPIGph_Mthd mpCreate;
+    cAPIGph_Mthd mpBeforeOfDraw;
+    cAPIGph_Mthd mpAfterOfDraw;
+    cAPIGph_Mthd mpPainter;
+    cAPIGph_Mthd mpBlankingOn;
+    cAPIGph_Mthd mpBlankingOff;
+};
+
+extern cAPIGph__Iface g_cAPI_Interface;
 
 #endif /* C_API_H */
