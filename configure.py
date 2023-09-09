@@ -122,6 +122,18 @@ CFLAGS_REL = [
 
 LINKER_VERSION = "GC/1.3.2"
 
+class Object:
+    def __init__(self, obj_path, completed, options):
+        self.obj_path = obj_path
+        self.completed = completed
+        self.options = options
+
+def Matching(obj_path, **kwargs):
+    return Object(obj_path, True, kwargs)
+
+def NonMatching(obj_path, **kwargs):
+    return Object(obj_path, False, kwargs)
+
 LIBS = [
     {
         "lib": "Runtime.PPCEABI.H",
@@ -129,9 +141,9 @@ LIBS = [
         "cflags": CFLAGS_RUNTIME,
         "host": False,
         "objects": [
-            ["Runtime/__init_cpp_exceptions.cpp", True],
-            ["Runtime/Gecko_ExceptionPPC.cp", True],
-            ["Runtime/global_destructor_chain.c", True],
+            Matching("Runtime/__init_cpp_exceptions.cpp"),
+            Matching("Runtime/Gecko_ExceptionPPC.cp"),
+            Matching("Runtime/global_destructor_chain.c"),
         ],
     },
     {
@@ -140,12 +152,8 @@ LIBS = [
         "cflags": CFLAGS_REL,
         "host": False,
         "objects": [
-            ["REL/executor.c", True],
-            [
-                "REL/global_destructor_chain.c",
-                True,
-                {"source": "Runtime/global_destructor_chain.c"},
-            ],
+            Matching("REL/executor.c"),
+            Matching("REL/global_destructor_chain.c", source="Runtime/global_destructor_chain.c")
         ],
     },
     {
@@ -154,26 +162,50 @@ LIBS = [
         "cflags": CFLAGS_FRAMEWORK,
         "host": True,
         "objects": [
-            ["f_op/f_op_actor.cpp", False],
-            ["f_op/f_op_actor_iter.cpp", True],
-            ["f_op/f_op_actor_tag.cpp", True],
-            ["f_op/f_op_actor_mng.cpp", False],
-            ["f_op/f_op_camera.cpp", False],
-            ["f_op/f_op_camera_mng.cpp", False],
-            ["f_op/f_op_overlap.cpp", False],
-            ["f_op/f_op_overlap_mng.cpp", False],
-            ["f_op/f_op_overlap_req.cpp", False],
-            ["f_op/f_op_scene.cpp", False],
-            ["f_op/f_op_scene_iter.cpp", True],
-            ["f_op/f_op_scene_mng.cpp", False],
-            ["f_op/f_op_scene_req.cpp", True],
-            ["f_op/f_op_scene_tag.cpp", True],
-            ["f_op/f_op_view.cpp", True],
-            ["f_op/f_op_kankyo.cpp", False],
-            ["f_op/f_op_msg_mng.cpp", False],
-            ["f_op/f_op_draw_iter.cpp", False],
-            ["f_op/f_op_draw_tag.cpp", True],
-            ["f_op/f_op_scene_pause.cpp", True],
+            # SSystem
+            NonMatching("SSystem/SStandard/s_basic.cpp"),
+            NonMatching("SSystem/SComponent/c_malloc.cpp"),
+            NonMatching("SSystem/SComponent/c_API.cpp"),
+            Matching   ("SSystem/SComponent/c_API_graphic.cpp"),
+            Matching   ("SSystem/SComponent/c_counter.cpp"),
+            NonMatching("SSystem/SComponent/c_list.cpp"),
+            Matching   ("SSystem/SComponent/c_list_iter.cpp"),
+            NonMatching("SSystem/SComponent/c_node.cpp"),
+            NonMatching("SSystem/SComponent/c_node_iter.cpp"),
+            Matching   ("SSystem/SComponent/c_tree.cpp"),
+            NonMatching("SSystem/SComponent/c_tree_iter.cpp"),
+            NonMatching("SSystem/SComponent/c_phase.cpp"),
+            Matching   ("SSystem/SComponent/c_request.cpp"),
+            Matching   ("SSystem/SComponent/c_tag.cpp"),
+            Matching   ("SSystem/SComponent/c_tag_iter.cpp"),
+            NonMatching("SSystem/SComponent/c_xyz.cpp"),
+            NonMatching("SSystem/SComponent/c_sxyz.cpp"),
+            NonMatching("SSystem/SComponent/c_lib.cpp"),
+            NonMatching("SSystem/SComponent/c_angle.cpp"),
+
+            # framework
+            NonMatching("f_op/f_op_actor.cpp"),
+            Matching   ("f_op/f_op_actor_iter.cpp"),
+            Matching   ("f_op/f_op_actor_tag.cpp"),
+            NonMatching("f_op/f_op_actor_mng.cpp"),
+            NonMatching("f_op/f_op_camera.cpp"),
+            NonMatching("f_op/f_op_camera_mng.cpp"),
+            NonMatching("f_op/f_op_overlap.cpp"),
+            NonMatching("f_op/f_op_overlap_mng.cpp"),
+            NonMatching("f_op/f_op_overlap_req.cpp"),
+            NonMatching("f_op/f_op_scene.cpp"),
+            Matching   ("f_op/f_op_scene_iter.cpp"),
+            NonMatching("f_op/f_op_scene_mng.cpp"),
+            Matching   ("f_op/f_op_scene_req.cpp"),
+            Matching   ("f_op/f_op_scene_tag.cpp"),
+            Matching   ("f_op/f_op_view.cpp"),
+            NonMatching("f_op/f_op_kankyo.cpp"),
+            NonMatching("f_op/f_op_msg_mng.cpp"),
+            NonMatching("f_op/f_op_draw_iter.cpp"),
+            Matching   ("f_op/f_op_draw_tag.cpp"),
+            Matching   ("f_op/f_op_scene_pause.cpp"),
+
+            # dolzel
         ],
     },
 ]
@@ -377,7 +409,7 @@ objdiff_config = {
 def locate_unit(unit):
     for lib in LIBS:
         for obj in lib["objects"]:
-            if obj[0] == unit:
+            if obj.obj_path == unit:
                 return [lib, obj]
     return None
 
@@ -486,19 +518,16 @@ if build_config_path.is_file():
         lib, data = result
         lib_name = lib["lib"]
 
-        completed = None
         options = {
             "add_to_all": True,
             "mw_version": None,
             "cflags": None,
             "source": unit,
         }
-        if type(data) is list:
-            if len(data) > 1:
-                completed = data[1]
-            if len(data) > 2:
-                options.update(data[2])
-            data = data[0]
+
+        completed = data.completed
+        if data.options is not None:
+            options.update(data.options)
 
         unit_src_path = src_path / options["source"]
         if not unit_src_path.exists():
@@ -513,7 +542,7 @@ if build_config_path.is_file():
             cflags_str = str(cflags)
         used_compiler_versions.add(mw_version)
 
-        base_object = Path(data).with_suffix("")
+        base_object = Path(data.obj_path).with_suffix("")
         src_obj_path = build_src_path / f"{base_object}.o"
         src_base_path = build_src_path / base_object
 
