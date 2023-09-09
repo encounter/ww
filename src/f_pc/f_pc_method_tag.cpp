@@ -4,24 +4,26 @@
 //
 
 #include "f_pc/f_pc_method_tag.h"
-#include "dolphin/types.h"
 
 /* 80040260-80040290       .text fpcMtdTg_Do__FP24process_method_tag_class */
-void fpcMtdTg_Do(process_method_tag_class*) {
-    /* Nonmatching */
+s32 fpcMtdTg_Do(process_method_tag_class* i_methodTag) {
+    return i_methodTag->mpFunc(i_methodTag->mpMthdData);
 }
 
 /* 80040290-800402B0       .text fpcMtdTg_ToMethodQ__FP15node_list_classP24process_method_tag_class */
-void fpcMtdTg_ToMethodQ(node_list_class*, process_method_tag_class*) {
-    /* Nonmatching */
+s32 fpcMtdTg_ToMethodQ(node_list_class* pList, process_method_tag_class* i_methodTag) {
+    return cTg_Addition(pList, &i_methodTag->mCreateTag);
 }
 
 /* 800402B0-800402D0       .text fpcMtdTg_MethodQTo__FP24process_method_tag_class */
-void fpcMtdTg_MethodQTo(process_method_tag_class*) {
-    /* Nonmatching */
+void fpcMtdTg_MethodQTo(process_method_tag_class* i_methodTag) {
+    cTg_SingleCut(&i_methodTag->mCreateTag);
 }
 
 /* 800402D0-8004031C       .text fpcMtdTg_Init__FP24process_method_tag_classPFPv_iPv */
-void fpcMtdTg_Init(process_method_tag_class*, int (*)(void*), void*) {
-    /* Nonmatching */
+s32 fpcMtdTg_Init(process_method_tag_class* i_methodTag, process_method_tag_func i_mtdTgFunc, void* i_data) {
+    cTg_Create(&i_methodTag->mCreateTag, i_methodTag);
+    i_methodTag->mpFunc = i_mtdTgFunc;
+    i_methodTag->mpMthdData = i_data;
+    return 1;
 }

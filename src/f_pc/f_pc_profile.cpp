@@ -4,9 +4,10 @@
 //
 
 #include "f_pc/f_pc_profile.h"
-#include "dolphin/types.h"
+
+process_profile_definition** g_fpcPf_ProfileList_p;
 
 /* 8004003C-80040050       .text fpcPf_Get__Fs */
-void fpcPf_Get(short) {
-    /* Nonmatching */
+process_profile_definition* fpcPf_Get(s16 i_profName) {
+    return g_fpcPf_ProfileList_p[i_profName];
 }

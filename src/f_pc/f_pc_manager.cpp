@@ -7,28 +7,28 @@
 #include "dolphin/types.h"
 
 /* 8003E318-8003E338       .text fpcM_Draw__FPv */
-void fpcM_Draw(void*) {
-    /* Nonmatching */
+void fpcM_Draw(void* i_proc) {
+    fpcDw_Execute((base_process_class*)i_proc);
 }
 
 /* 8003E338-8003E370       .text fpcM_DrawIterater__FPFPvPv_i */
-void fpcM_DrawIterater(int (*)(void*, void*)) {
-    /* Nonmatching */
+s32 fpcM_DrawIterater(fpcM_DrawIteraterFunc i_drawIterFunc) {
+    return fpcLyIt_OnlyHere(fpcLy_RootLayer(), (fpcLyIt_OnlyHereFunc)i_drawIterFunc, NULL);
 }
 
 /* 8003E370-8003E390       .text fpcM_Execute__FPv */
-void fpcM_Execute(void*) {
-    /* Nonmatching */
+s32 fpcM_Execute(void* i_proc) {
+    return fpcEx_Execute((base_process_class*)i_proc);
 }
 
 /* 8003E390-8003E3B0       .text fpcM_Delete__FPv */
-void fpcM_Delete(void*) {
-    /* Nonmatching */
+s32 fpcM_Delete(void* i_proc) {
+    return fpcDt_Delete((base_process_class*)i_proc);
 }
 
 /* 8003E3B0-8003E3D0       .text fpcM_IsCreating__FUi */
-void fpcM_IsCreating(unsigned int) {
-    /* Nonmatching */
+BOOL fpcM_IsCreating(unsigned int pID) {
+    return fpcCt_IsCreatingByID(pID);
 }
 
 /* 8003E3D0-8003E9F0       .text messageSet__FUl */

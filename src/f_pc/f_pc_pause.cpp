@@ -4,24 +4,47 @@
 //
 
 #include "f_pc/f_pc_pause.h"
-#include "dolphin/types.h"
+#include "f_pc/f_pc_node.h"
+#include "f_pc/f_pc_layer_iter.h"
 
 /* 8004031C-80040340       .text fpcPause_IsEnable__FPvUc */
-void fpcPause_IsEnable(void*, unsigned char) {
-    /* Nonmatching */
+s32 fpcPause_IsEnable(void* i_proc, u8 i_flag) {
+    base_process_class* pProc = (base_process_class*)i_proc;
+    if ((pProc->mPauseFlag & i_flag) == i_flag) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 /* 80040340-800403AC       .text fpcPause_Enable__FPvUc */
-void fpcPause_Enable(void*, unsigned char) {
-    /* Nonmatching */
+s32 fpcPause_Enable(void* i_proc, u8 i_flag) {
+    base_process_class* pProc = (base_process_class*)i_proc;
+    pProc->mPauseFlag |= i_flag;
+
+    if (fpcBs_Is_JustOfType(g_fpcNd_type, pProc->mSubType)) {
+        process_node_class* pNode = (process_node_class*)pProc;
+        fpcLyIt_OnlyHere(&pNode->mLayer, (fpcLyIt_OnlyHereFunc)fpcPause_Enable,
+                         (void*)(i_flag & 0xFF));
+    }
+    return 1;
 }
 
 /* 800403AC-80040420       .text fpcPause_Disable__FPvUc */
-void fpcPause_Disable(void*, unsigned char) {
-    /* Nonmatching */
+s32 fpcPause_Disable(void* i_proc, u8 i_flag) {
+    base_process_class* pProc = (base_process_class*)i_proc;
+    pProc->mPauseFlag &= (0xFF - i_flag) & 0xFF;
+
+    if (fpcBs_Is_JustOfType(g_fpcNd_type, pProc->mSubType)) {
+        process_node_class* pNode = (process_node_class*)pProc;
+        fpcLyIt_OnlyHere(&pNode->mLayer, (fpcLyIt_OnlyHereFunc)fpcPause_Disable, (void*)i_flag);
+    }
+
+    return 1;
 }
 
 /* 80040420-8004042C       .text fpcPause_Init__FPv */
-void fpcPause_Init(void*) {
-    /* Nonmatching */
+void fpcPause_Init(void* i_proc) {
+    base_process_class* pProc = (base_process_class*)i_proc;
+    pProc->mPauseFlag = 0;
 }

@@ -4,14 +4,19 @@
 //
 
 #include "f_pc/f_pc_profile_lst.h"
-#include "dolphin/types.h"
+#include "f_pc/f_pc_profile.h"
+
+// TODO(jstpierre): Fill in profile list
+SECTION_DATA static process_profile_definition* g_fpcPfLst_ProfileList[] = {
+    NULL,
+};
 
 /* 00000078-0000008C       .text ModuleProlog */
-void ModuleProlog {
-    /* Nonmatching */
+void ModuleProlog() {
+    g_fpcPf_ProfileList_p = g_fpcPf_ProfileList;
 }
 
 /* 0000008C-0000009C       .text ModuleEpilog */
-void ModuleEpilog {
-    /* Nonmatching */
+void ModuleEpilog() {
+    g_fpcPf_ProfileList_p = NULL;
 }

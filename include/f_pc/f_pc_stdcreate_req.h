@@ -9,11 +9,11 @@ typedef int (*stdCreateFunc)(void*, void*);
 
 typedef struct standard_create_request_class {
     /* 0x00 */ create_request mBase;
-    /* 0x48 */ request_of_phase_process_class unk_0x48;
-    /* 0x50 */ s16 mLoadID;
-    /* 0x54 */ void* unk_0x54;
-    /* 0x58 */ stdCreateFunc unk_0x58;
-    /* 0x5C */ void* unk_0x5C;
+    /* 0x48 */ request_of_phase_process_class mPhase;
+    /* 0x50 */ s16 mProcName;
+    /* 0x54 */ void* mpUserData;
+    /* 0x58 */ stdCreateFunc mpCallBack;
+    /* 0x5C */ void* mpCallBackUserData;
 } standard_create_request_class;
 
 s32 fpcSCtRq_phase_CreateProcess(standard_create_request_class* pStdCreateReq);
