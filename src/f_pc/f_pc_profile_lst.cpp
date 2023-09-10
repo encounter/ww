@@ -1022,6 +1022,6 @@ void ModuleProlog() {
 }
 
 /* 0000008C-0000009C       .text ModuleEpilog */
-void ModuleEpilog {
-    /* Nonmatching */
+void ModuleEpilog() {
+    g_fpcPf_ProfileList_p = NULL;
 }
