@@ -4,24 +4,26 @@
 //
 
 #include "f_op/f_op_camera_mng.h"
-#include "dolphin/types.h"
+#include "f_pc/f_pc_layer.h"
+#include "f_pc/f_pc_stdcreate_req.h"
+
+static u32 l_fopCamM_id[4];
 
 /* 80029468-80029470       .text fopCamM_GetParam__FP12camera_class */
-void fopCamM_GetParam(camera_class*) {
-    /* Nonmatching */
+u32 fopCamM_GetParam(camera_class* i_this) {
+    return i_this->mBase.mParameters;
 }
 
 /* 80029470-800294D4       .text fopCamM_Create__FisPv */
-void fopCamM_Create(int, short, void*) {
-    /* Nonmatching */
+u32 fopCamM_Create(int i_cameraIdx, s16 i_procName, void* param_3) {
+    l_fopCamM_id[i_cameraIdx] = fpcSCtRq_Request(fpcLy_CurrentLayer(), i_procName, 0, 0, param_3);
+    return l_fopCamM_id[i_cameraIdx];
 }
 
 /* 800294D4-800294D8       .text fopCamM_Management__Fv */
 void fopCamM_Management() {
-    /* Nonmatching */
 }
 
 /* 800294D8-800294DC       .text fopCamM_Init__Fv */
 void fopCamM_Init() {
-    /* Nonmatching */
 }

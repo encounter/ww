@@ -8,7 +8,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_obj_vmsdz.cpp:
+d/actor/d_a_obj_vmsdz.cpp:
 	.text       start:0x00000078 end:0x00000394
 	.rodata     start:0x00000000 end:0x0000002D
 	.data       start:0x00000000 end:0x00000050

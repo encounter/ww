@@ -7,6 +7,6 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_andsw2.cpp:
+d/actor/d_a_andsw2.cpp:
 	.text       start:0x00000078 end:0x00000724
 	.data       start:0x00000000 end:0x00000068

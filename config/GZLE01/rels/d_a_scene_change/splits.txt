@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d/a/d_a_scene_change.cpp:
+d/actor/d_a_scene_change.cpp:
 	.text       start:0x000000EC end:0x00000254
 	.ctors      start:0x00000000 end:0x00000008
 	.rodata     start:0x00000000 end:0x00000004

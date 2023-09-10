@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d/a/d_a_obj_shmrgrd.cpp:
+d/actor/d_a_obj_shmrgrd.cpp:
 	.text       start:0x000000EC end:0x00001CF0
 	.text       start:0x00001CF0 end:0x00002124
 	.text       start:0x00002124 end:0x00002150

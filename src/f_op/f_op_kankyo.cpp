@@ -3,7 +3,7 @@
 // Translation Unit: f_op_kankyo.cpp
 //
 
-#include "f_op/f_op_kankyo.h"
+#include "f_op_kankyo.h"
 #include "dolphin/types.h"
 
 /* 8002A454-8002A4A4       .text fopKy_Draw__FPv */

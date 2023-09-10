@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_obj_try.cpp:
+d/actor/d_a_obj_try.cpp:
 	.text       start:0x00000078 end:0x000034F0
 	.text       start:0x000034F0 end:0x00003564
 	.rodata     start:0x00000000 end:0x00000710

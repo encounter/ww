@@ -5,17 +5,17 @@
 
 typedef void (*cAPIGph_Mthd)(void);
 
-struct cAPI_Interface {
-    u8* graphicInfo;
-    cAPIGph_Mthd create;
-    cAPIGph_Mthd beforeOfDraw;
-    cAPIGph_Mthd afterOfDraw;
-    cAPIGph_Mthd painter;
-    cAPIGph_Mthd blankingON;
-    cAPIGph_Mthd blankingOFF;
-    cAPIGph_Mthd unk0x1C;
+struct cAPIGph__Iface
+{
+    u8 * mpGInfo;
+    cAPIGph_Mthd mpCreate;
+    cAPIGph_Mthd mpBeforeOfDraw;
+    cAPIGph_Mthd mpAfterOfDraw;
+    cAPIGph_Mthd mpPainter;
+    cAPIGph_Mthd mpBlankingOn;
+    cAPIGph_Mthd mpBlankingOff;
 };
 
-extern cAPI_Interface g_cAPI_Interface;
+extern cAPIGph__Iface g_cAPI_Interface;
 
 #endif /* C_API_H */

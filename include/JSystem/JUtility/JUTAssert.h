@@ -2,8 +2,7 @@
 #define JUTASSERT_H
 
 #include "dolphin/types.h"
-
-extern "C" void OSPanic(const char * file, s32 line, const char * fmt, ...);
+#include "dolphin/os/OS.h"
 
 #define JUT_ASSERT(FILE, LINE, COND)                                                               \
     if (!(COND)) {                                                                                 \

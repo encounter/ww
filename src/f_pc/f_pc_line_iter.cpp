@@ -4,14 +4,29 @@
 //
 
 #include "f_pc/f_pc_line_iter.h"
-#include "dolphin/types.h"
+#include "SSystem/SComponent/c_tag_iter.h"
+#include "SSystem/SComponent/c_tree_iter.h"
+#include "f_pc/f_pc_base.h"
+#include "f_pc/f_pc_layer.h"
+#include "f_pc/f_pc_line.h"
 
 /* 80040198-80040200       .text fpcLnIt_MethodCall__FP16create_tag_classP13method_filter */
-void fpcLnIt_MethodCall(create_tag_class*, method_filter*) {
-    /* Nonmatching */
+static s32 fpcLnIt_MethodCall(create_tag_class* i_createTag, method_filter* i_filter) {
+    layer_class* pLayer = static_cast<base_process_class*>(i_createTag->mpTagData)->mLyTg.mpLayer;
+    layer_class* pCurLayer = fpcLy_CurrentLayer();
+    s32 ret;
+
+    fpcLy_SetCurrentLayer(pLayer);
+    ret = cTgIt_MethodCall(i_createTag, i_filter);
+    fpcLy_SetCurrentLayer(pCurLayer);
+
+    return ret;
 }
 
 /* 80040200-8004023C       .text fpcLnIt_Queue__FPFPvPv_i */
-void fpcLnIt_Queue(int (*)(void*, void*)) {
-    /* Nonmatching */
+void fpcLnIt_Queue(fpcLnIt_QueueFunc i_queueFunc) {
+    method_filter filter;
+    filter.mpMethodFunc = (cNdIt_MethodFunc)i_queueFunc;
+    filter.mpUserData = NULL;
+    cTrIt_Method(&g_fpcLn_Queue, (cNdIt_MethodFunc)fpcLnIt_MethodCall, &filter);
 }

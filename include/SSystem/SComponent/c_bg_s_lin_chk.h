@@ -20,7 +20,7 @@ public:
 public:
     cBgS_LinChk();
     void ct();
-    void Set2(const cXyz*, const cXyz*, unsigned int);
+    void Set2(cXyz*, cXyz*, unsigned int);
     void PreCalc();
     void GetCross();
 

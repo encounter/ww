@@ -9,7 +9,7 @@ Sections:
 REL/executor.c:
 	.text       start:0x00000000 end:0x00000078
 
-d/a/d_a_obj_hami2.cpp:
+d/actor/d_a_obj_hami2.cpp:
 	.text       start:0x00000078 end:0x00000C10
 	.text       start:0x00000C10 end:0x00000C28
 	.text       start:0x00000C28 end:0x00000C44

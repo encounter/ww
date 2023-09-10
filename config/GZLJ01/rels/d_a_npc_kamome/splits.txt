@@ -14,7 +14,7 @@ REL/global_destructor_chain.c:
 	.dtors      start:0x00000000 end:0x00000008
 	.bss        start:0x00000000 end:0x00000008
 
-d/a/d_a_npc_kamome.cpp:
+d/actor/d_a_npc_kamome.cpp:
 	.text       start:0x000000EC end:0x000049A0
 	.text       start:0x000049A0 end:0x00004A98
 	.text       start:0x00004A98 end:0x00004C84
