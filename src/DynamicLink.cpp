@@ -13,51 +13,7 @@
 #include "MSL_C/stdio.h"
 #include "REL/executor.h"
 #include "m_Do/m_Do_dvd_thread.h"
-
-// TODO
-// #include "dolphin/os/OS.h"
-typedef struct OSSectionInfo {
-    u32 mOffset;
-    u32 mSize;
-} OSSectionInfo;
-typedef struct OSModuleInfo {
-    u32 mId;
-    u32 mNext;
-    u32 mPrev;
-    u32 mNumSections;
-    struct {  // Needed to get an assert correct; very likely bigger
-        u32 sectionInfoOffset;
-    } info;
-    u32 mModuleNameOffset;
-    u32 mModuleNameSize;
-    u32 mModuleVersion;
-    u32 mBssSize;
-    u32 mRelocationTableOffset;
-    u32 mImportTableOffset;
-    u32 mImportTableSize;
-    u8 mPrologSection;
-    u8 mEpilogSection;
-    u8 mUnresolvedSection;
-    u8 mBssSection;
-    u32 prolog;
-    u32 epilog;
-    u32 mUnresolvedFuncOffset;
-    u32 mModuleAlignment;
-    u32 mBssAlignment;
-    u32 fixSize;
-} OSModuleInfo;
-extern "C" {
-BOOL OSLink(OSModuleInfo* module);
-BOOL OSLinkFixed(OSModuleInfo* module, u32 param_1);
-BOOL OSUnlink(OSModuleInfo* module);
-void OSReport(const char* fmt, ...);
-void OSReport_Error(const char* fmt, ...);
-void OSReport_Warning(const char* fmt, ...);
-typedef s64 OSTime;
-OSTime OSGetTime(void);
-u8* OSGetStackPointer(void);
-}
-// end OS.h
+#include "dolphin/os/OS.h"
 
 // TODO 
 // #include "m_Do/m_Do_ext.h"
