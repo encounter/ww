@@ -15,6 +15,10 @@ Dependencies
 
 Windows:
 --------
+
+On Windows, it's **highly recommended** to use native tooling. WSL or msys2 are **not** required.  
+When running under WSL, [objdiff](#diffing) is unable to get filesystem notifications for automatic rebuilds.
+
 - Install [ninja](https://github.com/ninja-build/ninja/releases) and add it to `%PATH%`.
 - Install [Python](https://www.python.org/downloads/) and add it to `%PATH%`.
   - Also available from the [Windows Store](https://apps.microsoft.com/store/detail/python-311/9NRWMJP3717K).
@@ -43,7 +47,7 @@ Building
   ```
   git clone https://github.com/encounter/ww.git
   ```
-- Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GZLE01`.  
+- Using [Dolphin Emulator](https://dolphin-emu.org/), extract your game to `orig/GZLE01` (or `GLZJ01` for JPN, `GLZE01` for PAL).  
 ![](assets/dolphin-extract.png)
   - To save space, the only necessary files are the following. Any others can be deleted.
     - `sys/main.dol`
@@ -68,3 +72,8 @@ Download the latest release from [encounter/objdiff](https://github.com/encounte
 Select an object from the left sidebar to begin diffing. Changes to the project will rebuild automatically: changes to source files, headers, `configure.py`, `splits.txt` or `symbols.txt`.
 
 ![](assets/objdiff.png)
+
+More documentation
+====================
+
+- [Visual Studio Code](docs/vscode.md)

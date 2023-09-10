@@ -1,9 +1,8 @@
 __pycache__
 .idea
-.ninja_deps
-.ninja_log
+.vscode
+.ninja_*
 *.exe
-!tools/sjiswrap.exe
 build
 build.ninja
 objdiff.json

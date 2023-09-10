@@ -1,7 +1,0 @@
-{
-  "recommendations": [
-    "ms-vscode.cpptools",
-    "xaver.clang-format",
-    "ms-python.black-formatter"
-  ]
-}
