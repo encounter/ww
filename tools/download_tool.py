@@ -32,7 +32,7 @@ def sjiswrap_url(tag):
 
 
 def wibo_url(tag):
-    repo = "https://github.com/decompals/wibo"
+    repo = "https://github.com/encounter/wibo"
     return f"{repo}/releases/download/{tag}/wibo"
 
 

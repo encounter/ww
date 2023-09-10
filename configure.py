@@ -279,7 +279,7 @@ LIBS = [
 COMPILERS_TAG = "1"
 DTK_TAG = "v0.4.1"
 SJISWRAP_TAG = "v1.1.0"
-WIBO_TAG = "0.4.3"
+WIBO_TAG = "0.4.3_temp"
 
 # On Windows, we need this to use && in commands
 chain = "cmd /c " if os.name == "nt" else ""
