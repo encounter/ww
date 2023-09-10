@@ -224,6 +224,8 @@ LIBS = [
             Matching   ("f_op/f_op_scene_tag.cpp"),
             Matching   ("f_op/f_op_view.cpp"),
             NonMatching("f_op/f_op_kankyo.cpp"),
+            Matching   ("f_op/f_op_msg.cpp"),
+            NonMatching("f_op/f_op_kankyo_mng.cpp"),
             NonMatching("f_op/f_op_msg_mng.cpp"),
             NonMatching("f_op/f_op_draw_iter.cpp"),
             Matching   ("f_op/f_op_draw_tag.cpp"),
@@ -264,6 +266,9 @@ LIBS = [
             NonMatching("m_Do/m_Do_controller_pad.cpp"),
 
             # dolzel
+            NonMatching("d/d_com_lib_game.cpp"),
+            Matching   ("d/d_particle_name.cpp"),
+            NonMatching("d/d_s_title.cpp"),
         ],
     },
 ]
