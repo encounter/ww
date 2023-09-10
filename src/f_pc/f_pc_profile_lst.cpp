@@ -1,5 +1,6 @@
 #include "f_pc/f_pc_profile_lst.h"
 #include "REL/executor.h"
+#include "global.h"
 
 extern process_profile_definition g_profile_OVERLAP0;
 extern process_profile_definition g_profile_OVERLAP1;
@@ -991,10 +992,15 @@ process_profile_definition* g_fpcPfLst_ProfileList[] = {
     &g_profile_CAMERA2,
     &g_profile_KYEFF,
     &g_profile_KYEFF2,
+#if VERSION == VERSION_PAL
+    &g_profile_MSG3,
+#endif
     &g_profile_MESG,
     &g_profile_MSG,
     &g_profile_MSG2,
+#if VERSION != VERSION_PAL
     &g_profile_MSG3,
+#endif
     &g_profile_MENUWINDOW,
     &g_profile_Menu_Cloth,
     &g_profile_TIMER,

@@ -13,9 +13,6 @@ Sections:
 	.sdata2     type:rodata
 	.sbss2      type:bss
 
-dolphin/os/__start.o:
-	.init       start:0x80003100 end:0x800033A8
-
 m_Do/m_Do_main.cpp:
 	.text       start:0x800056E0 end:0x80006578
 	.rodata     start:0x80336240 end:0x80336528
@@ -142,6 +139,9 @@ m_Do/m_Do_machine_exception.cpp:
 	.text       start:0x8001B770 end:0x8001BB70
 	.rodata     start:0x80337158 end:0x80337338
 	.sbss       start:0x803E9E90 end:0x803E9E98
+
+dolphin/os/__start.o:
+	.init       start:0x80003100 end:0x800033A8
 
 c/c_damagereaction.o:
 	.text       start:0x8001BB70 end:0x80022430

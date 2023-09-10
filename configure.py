@@ -436,7 +436,7 @@ n.newline()
 ###
 compiler_path = compilers / "$mw_version"
 mwcc = compiler_path / "mwcceppc.exe"
-mwcc_implicit = [compilers_implicit or mwcc, sjiswrap]
+mwcc_implicit = [compilers_implicit or mwcc, wrapper_implicit, sjiswrap]
 mwld = compiler_path / "mwldeppc.exe"
 mwld_implicit = [compilers_implicit or mwld, wrapper_implicit]
 

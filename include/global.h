@@ -37,4 +37,8 @@ inline BOOL checkEqual(s32 a, s32 b) {
     return (u32)__cntlzw(a - b) >> 5;
 }
 
+#define VERSION_JPN 0
+#define VERSION_USA 1
+#define VERSION_PAL 2
+
 #endif
