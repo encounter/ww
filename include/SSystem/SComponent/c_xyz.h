@@ -13,7 +13,7 @@ struct cXyz : Vec {
     static const cXyz BaseXZ;
     static const cXyz BaseYZ;
     static const cXyz BaseXYZ;
-    /* 80009184 */ ~cXyz() {}
+    ~cXyz() {}
     /* inlined  */ cXyz() {}
     cXyz(f32 x, f32 y, f32 z) {
         this->x = x;
@@ -35,12 +35,12 @@ struct cXyz : Vec {
         this->y = vec.y;
         this->z = vec.z;
     }
-    /* 80266AE4 */ cXyz operator+(Vec const&) const;
-    /* 80266B34 */ cXyz operator-(Vec const&) const;
-    /* 80266B84 */ cXyz operator*(f32) const;
-    /* 80266BD0 */ cXyz operator*(Vec const&) const;
-    /* 80266C18 */ cXyz operator/(f32) const;
-    /* 800977D8 */ // void operator=(cXyz const&);
+    cXyz operator+(Vec const&) const;
+    cXyz operator-(Vec const&) const;
+    cXyz operator*(f32) const;
+    cXyz operator*(Vec const&) const;
+    cXyz operator/(f32) const;
+    // void operator=(cXyz const&);
 
     void operator+=(f32 f) {
         x += f;

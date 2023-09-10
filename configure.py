@@ -126,7 +126,6 @@ CFLAGS_FRAMEWORK = [
     "-O3,s",
     "-schedule off",
     "-sym on",
-    "-DDEBUG",
 ]
 
 CFLAGS_REL = [
@@ -137,17 +136,21 @@ CFLAGS_REL = [
 
 LINKER_VERSION = "GC/1.3.2"
 
+
 class Object:
     def __init__(self, obj_path, completed, options):
         self.obj_path = obj_path
         self.completed = completed
         self.options = options
 
+
 def Matching(obj_path, **kwargs):
     return Object(obj_path, True, kwargs)
 
+
 def NonMatching(obj_path, **kwargs):
     return Object(obj_path, False, kwargs)
+
 
 LIBS = [
     {
@@ -168,7 +171,37 @@ LIBS = [
         "host": False,
         "objects": [
             Matching("REL/executor.c"),
-            Matching("REL/global_destructor_chain.c", source="Runtime/global_destructor_chain.c")
+            Matching(
+                "REL/global_destructor_chain.c",
+                source="Runtime/global_destructor_chain.c",
+            ),
+        ],
+    },
+    {
+        "lib": "SSystem",
+        "mw_version": "GC/1.3.2",
+        "cflags": CFLAGS_FRAMEWORK,
+        "host": True,
+        "objects": [
+            Matching("SSystem/SStandard/s_basic.cpp"),
+            Matching("SSystem/SComponent/c_malloc.cpp"),
+            Matching("SSystem/SComponent/c_API.cpp"),
+            Matching("SSystem/SComponent/c_API_graphic.cpp"),
+            Matching("SSystem/SComponent/c_counter.cpp"),
+            Matching("SSystem/SComponent/c_list.cpp"),
+            Matching("SSystem/SComponent/c_list_iter.cpp"),
+            Matching("SSystem/SComponent/c_node.cpp"),
+            Matching("SSystem/SComponent/c_node_iter.cpp"),
+            Matching("SSystem/SComponent/c_tree.cpp"),
+            Matching("SSystem/SComponent/c_tree_iter.cpp"),
+            NonMatching("SSystem/SComponent/c_phase.cpp"),
+            Matching("SSystem/SComponent/c_request.cpp"),
+            Matching("SSystem/SComponent/c_tag.cpp"),
+            Matching("SSystem/SComponent/c_tag_iter.cpp"),
+            NonMatching("SSystem/SComponent/c_xyz.cpp"),
+            Matching("SSystem/SComponent/c_sxyz.cpp"),
+            NonMatching("SSystem/SComponent/c_lib.cpp"),
+            NonMatching("SSystem/SComponent/c_angle.cpp"),
         ],
     },
     {
@@ -177,55 +210,33 @@ LIBS = [
         "cflags": CFLAGS_FRAMEWORK,
         "host": True,
         "objects": [
-            # SSystem
-            NonMatching("SSystem/SStandard/s_basic.cpp"),
-            NonMatching("SSystem/SComponent/c_malloc.cpp"),
-            NonMatching("SSystem/SComponent/c_API.cpp"),
-            Matching   ("SSystem/SComponent/c_API_graphic.cpp"),
-            Matching   ("SSystem/SComponent/c_counter.cpp"),
-            NonMatching("SSystem/SComponent/c_list.cpp"),
-            Matching   ("SSystem/SComponent/c_list_iter.cpp"),
-            NonMatching("SSystem/SComponent/c_node.cpp"),
-            NonMatching("SSystem/SComponent/c_node_iter.cpp"),
-            Matching   ("SSystem/SComponent/c_tree.cpp"),
-            NonMatching("SSystem/SComponent/c_tree_iter.cpp"),
-            NonMatching("SSystem/SComponent/c_phase.cpp"),
-            Matching   ("SSystem/SComponent/c_request.cpp"),
-            Matching   ("SSystem/SComponent/c_tag.cpp"),
-            Matching   ("SSystem/SComponent/c_tag_iter.cpp"),
-            NonMatching("SSystem/SComponent/c_xyz.cpp"),
-            NonMatching("SSystem/SComponent/c_sxyz.cpp"),
-            NonMatching("SSystem/SComponent/c_lib.cpp"),
-            NonMatching("SSystem/SComponent/c_angle.cpp"),
-
-            # framework
             NonMatching("f_ap/f_ap_game.cpp"),
             NonMatching("f_op/f_op_actor.cpp"),
-            Matching   ("f_op/f_op_actor_iter.cpp"),
-            Matching   ("f_op/f_op_actor_tag.cpp"),
+            Matching("f_op/f_op_actor_iter.cpp"),
+            Matching("f_op/f_op_actor_tag.cpp"),
             NonMatching("f_op/f_op_actor_mng.cpp"),
             NonMatching("f_op/f_op_camera.cpp"),
             NonMatching("f_op/f_op_camera_mng.cpp"),
-            NonMatching("f_op/f_op_overlap.cpp"),
+            Matching("f_op/f_op_overlap.cpp"),
             NonMatching("f_op/f_op_overlap_mng.cpp"),
-            NonMatching("f_op/f_op_overlap_req.cpp"),
-            NonMatching("f_op/f_op_scene.cpp"),
-            Matching   ("f_op/f_op_scene_iter.cpp"),
+            Matching("f_op/f_op_overlap_req.cpp"),
+            Matching("f_op/f_op_scene.cpp"),
+            Matching("f_op/f_op_scene_iter.cpp"),
             NonMatching("f_op/f_op_scene_mng.cpp"),
-            Matching   ("f_op/f_op_scene_req.cpp"),
-            Matching   ("f_op/f_op_scene_tag.cpp"),
-            Matching   ("f_op/f_op_view.cpp"),
+            Matching("f_op/f_op_scene_req.cpp"),
+            Matching("f_op/f_op_scene_tag.cpp"),
+            Matching("f_op/f_op_view.cpp"),
             NonMatching("f_op/f_op_kankyo.cpp"),
             NonMatching("f_op/f_op_msg_mng.cpp"),
             NonMatching("f_op/f_op_draw_iter.cpp"),
-            Matching   ("f_op/f_op_draw_tag.cpp"),
-            Matching   ("f_op/f_op_scene_pause.cpp"),
-            Matching   ("f_pc/f_pc_base.cpp"),
-            Matching   ("f_pc/f_pc_create_iter.cpp"),
+            Matching("f_op/f_op_draw_tag.cpp"),
+            Matching("f_op/f_op_scene_pause.cpp"),
+            Matching("f_pc/f_pc_base.cpp"),
+            Matching("f_pc/f_pc_create_iter.cpp"),
             NonMatching("f_pc/f_pc_create_req.cpp"),
-            Matching   ("f_pc/f_pc_create_tag.cpp"),
-            Matching   ("f_pc/f_pc_creator.cpp"),
-            Matching   ("f_pc/f_pc_delete_tag.cpp"),
+            Matching("f_pc/f_pc_create_tag.cpp"),
+            Matching("f_pc/f_pc_creator.cpp"),
+            Matching("f_pc/f_pc_delete_tag.cpp"),
             NonMatching("f_pc/f_pc_deletor.cpp"),
             NonMatching("f_pc/f_pc_draw_priority.cpp"),
             NonMatching("f_pc/f_pc_executor.cpp"),
@@ -240,7 +251,6 @@ LIBS = [
             NonMatching("f_pc/f_pc_node_req.cpp"),
             NonMatching("f_pc/f_pc_node.cpp"),
             NonMatching("f_pc/f_pc_priority.cpp"),
-            NonMatching("f_pc/f_pc_profile_lst.cpp"),
             NonMatching("f_pc/f_pc_profile.cpp"),
             NonMatching("f_pc/f_pc_searcher.cpp"),
             NonMatching("f_pc/f_pc_line_tag.cpp"),
@@ -251,8 +261,7 @@ LIBS = [
             NonMatching("f_pc/f_pc_draw.cpp"),
             NonMatching("f_pc/f_pc_fstcreate_req.cpp"),
             NonMatching("f_pc/f_pc_stdcreate_req.cpp"),
-
-            # dolzel
+            NonMatching("DynamicLink.cpp"),
         ],
     },
     {
@@ -268,7 +277,7 @@ LIBS = [
 
 # Tool versions
 COMPILERS_TAG = "1"
-DTK_TAG = "v0.4.0"
+DTK_TAG = "v0.4.1"
 SJISWRAP_TAG = "v1.1.0"
 WIBO_TAG = "0.4.3"
 

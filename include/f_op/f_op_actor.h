@@ -83,7 +83,7 @@ public:
 };  // Size = 0x18
 
 struct actor_place {
-    /* 807E2468 */  // void operator=(actor_place const&);
+    // void operator=(actor_place const&);
 
     /* 0x00 */ cXyz pos;
     /* 0x0C */ csXyz angle;
@@ -170,10 +170,10 @@ STATIC_ASSERT(sizeof(fopAc_ac_c) == 0x568);
 
 class fopEn_enemy_c : public fopAc_ac_c {
 public:
-    /* 80019404 */ bool initBallModel();
-    /* 800194FC */ bool checkBallModelDraw();
-    /* 80019520 */ void setBallModelEffect(dKy_tevstr_c*);
-    /* 800196A0 */ void drawBallModel(dKy_tevstr_c*);
+    bool initBallModel();
+    bool checkBallModelDraw();
+    void setBallModelEffect(dKy_tevstr_c*);
+    void drawBallModel(dKy_tevstr_c*);
 
     bool checkWolfNoLock() const { return mFlags & 0x200; }
     bool checkHeadLockFlg() const { return mFlags & 0x80; }

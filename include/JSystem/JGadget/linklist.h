@@ -53,14 +53,14 @@ struct TNodeLinkList {
         return iter;
     }
 
-    /* 802DCA1C */ ~TNodeLinkList();
-    /* 802DCAA0 */ iterator erase(JGadget::TNodeLinkList::iterator, JGadget::TNodeLinkList::iterator);
-    /* 802DCA58 */ iterator erase(JGadget::TNodeLinkList::iterator);
-    /* 802DCB08 */ void splice(JGadget::TNodeLinkList::iterator, JGadget::TNodeLinkList&,
-                               JGadget::TNodeLinkList::iterator);
-    /* 802DCBA8 */ iterator Insert(JGadget::TNodeLinkList::iterator, JGadget::TLinkListNode*);
-    /* 802DCBD4 */ iterator Erase(JGadget::TLinkListNode*);
-    /* 802DCBF8 */ void Remove(JGadget::TLinkListNode*);
+    ~TNodeLinkList();
+    iterator erase(JGadget::TNodeLinkList::iterator, JGadget::TNodeLinkList::iterator);
+    iterator erase(JGadget::TNodeLinkList::iterator);
+    void splice(JGadget::TNodeLinkList::iterator, JGadget::TNodeLinkList&,
+                JGadget::TNodeLinkList::iterator);
+    iterator Insert(JGadget::TNodeLinkList::iterator, JGadget::TLinkListNode*);
+    iterator Erase(JGadget::TLinkListNode*);
+    void Remove(JGadget::TLinkListNode*);
 
     /* 0x00 */ int count;
     /* 0x04 */ TLinkListNode ocObject_;

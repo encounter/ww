@@ -3,10 +3,10 @@
 
 #include "dolphin/types.h"
 
-extern void OSPanic(const char * file, s32 line, const char * fmt, ...);
+extern "C" void OSPanic(const char * file, s32 line, const char * fmt, ...);
 
 #define JUT_ASSERT(FILE, LINE, COND)                                                               \
-    if (!(COND)) {                                                                                   \
+    if (!(COND)) {                                                                                 \
         JUTAssertion::showAssert(JUTAssertion::getSDevice(), FILE, LINE, #COND);                   \
         OSPanic(FILE, LINE, "Halt");                                                               \
     }
@@ -17,7 +17,7 @@ extern void OSPanic(const char * file, s32 line, const char * fmt, ...);
 
 namespace JUTAssertion {
     u32 getSDevice();
-    void showAssert(u32 device, const char * file, s32 line, const char * assertion);
+    void showAssert(u32 device, const char * file, int line, const char * assertion);
     void create();
     u32 flush_subroutine();
     void flushMessage();

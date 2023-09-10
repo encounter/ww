@@ -14,9 +14,8 @@
 #include "REL/executor.h"
 #include "m_Do/m_Do_dvd_thread.h"
 
+// TODO
 // #include "dolphin/os/OS.h"
-// #include "m_Do/m_Do_ext.h"
-
 typedef struct OSSectionInfo {
     u32 mOffset;
     u32 mSize;
@@ -48,7 +47,6 @@ typedef struct OSModuleInfo {
     u32 fixSize;
 } OSModuleInfo;
 extern "C" {
-void OSPanic(const char* file, s32 line, const char* fmt, ...);
 BOOL OSLink(OSModuleInfo* module);
 BOOL OSLinkFixed(OSModuleInfo* module, u32 param_1);
 BOOL OSUnlink(OSModuleInfo* module);
@@ -59,8 +57,13 @@ typedef s64 OSTime;
 OSTime OSGetTime(void);
 u8* OSGetStackPointer(void);
 }
+// end OS.h
+
+// TODO 
+// #include "m_Do/m_Do_ext.h"
 JKRExpHeap* mDoExt_getArchiveHeap();
 extern JKRExpHeap* archiveHeap;
+// end m_Do_ext.h
 
 DynamicModuleControlBase* DynamicModuleControlBase::mFirst;
 DynamicModuleControlBase* DynamicModuleControlBase::mLast;

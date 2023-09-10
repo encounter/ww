@@ -43,21 +43,20 @@ struct DynamicModuleControlBase {
 };
 
 struct DynamicModuleControl : DynamicModuleControlBase {
-    /* 800188E4 */ virtual ~DynamicModuleControl() {}
-    /* 80263218 */ virtual const char* getModuleName() const { return mName; }
-    /* 80263000 */ virtual int getModuleSize() const;
-    /* 80263070 */ virtual const char* getModuleTypeString() const;
-    // virtual void dump();
-    /* 80262C0C */ virtual void dump2();
-    /* 802627E8 */ virtual bool do_load();
-    /* 80262AFC */ virtual BOOL do_load_async();
-    /* 80262BC4 */ virtual bool do_unload();
-    /* 80262C5C */ virtual BOOL do_link();
-    /* 80262F28 */ virtual bool do_unlink();
-    /* 80262660 */ DynamicModuleControl(char const*);
-    /* 802626D0 */ static JKRArchive* mountCallback(void*);
-    /* 8026275C */ static bool initialize();
-    /* 80262794 */ static bool callback(void*);
+    virtual ~DynamicModuleControl() {}
+    virtual const char* getModuleName() const { return mName; }
+    virtual int getModuleSize() const;
+    virtual const char* getModuleTypeString() const;
+    virtual void dump2();
+    virtual bool do_load();
+    virtual BOOL do_load_async();
+    virtual bool do_unload();
+    virtual BOOL do_link();
+    virtual bool do_unlink();
+    DynamicModuleControl(char const*);
+    static JKRArchive* mountCallback(void*);
+    static bool initialize();
+    static bool callback(void*);
 
     /* 0x10 */ OSModuleInfo* mModule;
     /* 0x14 */ void* mBss;
