@@ -556,6 +556,7 @@ build_host_path = build_path / "host"
 build_config_path = build_path / "config.json"
 
 objdiff_config = {
+    "min_version": "0.4.2",
     "custom_make": "ninja",
     "build_target": False,
     "watch_patterns": [
